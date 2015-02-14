@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "body-parser": "~1.10.2",
+    "chai": "^2.0.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.3.3",
     "debug": "~2.1.1",
@@ -14,11 +15,13 @@
     "express": "~4.11.1",
     "express-session": "^1.10.2",
     "jade": "~1.9.1",
+    "mocha": "^2.1.0",
     "mongodb": "^1.4.30",
     "mongoose": "^3.8.23",
     "morgan": "~1.5.1",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
-    "serve-favicon": "~2.2.0"
+    "serve-favicon": "~2.2.0",
+    "should": "^5.0.0"
   }
 }

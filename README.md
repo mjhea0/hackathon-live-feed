@@ -12,3 +12,8 @@
 1. Add credentials to *_config.js*
 1. Run Mongo
 1. Run express server `nodemon`
+
+
+## Test
+
+1. `make`
