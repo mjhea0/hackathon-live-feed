@@ -1,29 +1,108 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+// *** main dependencies *** //
+var express = require('express'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
+    bodyParser = require('body-parser'),
+    passport = require('passport'),
+    GitHubStrategy = require('passport-github').Strategy,
+    flash = require('connect-flash'),
+    mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
 
+// *** config file *** //
+var config = require('./config/_config');
+
+
+// *** routes *** //
+var mainRoutes = require('./routes/index');
+var userRoutes = require('./routes/users');
+
+
+// *** express instance *** //
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// *** view engine *** ///
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
+
+// *** middeleware *** //
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash());
+app.use(session({
+  secret: 'my precious',  // change secret key, move to config
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+
+// *** passport *** //
+
+mongoose.connect('mongodb://localhost/hackathon'); // change URI, move to config
+var User = require('./models/users.js');
+
+// passport github strategy
+passport.use(new GitHubStrategy({
+  clientID: config.github_client_id,
+  clientSecret: config.github_client_secret,
+  callbackURL: config.github_callback_url
+},
+function(accessToken, refreshToken, profile, done) {
+  User.findOne({ oauthID: profile.id }, function(err, user) {
+    if(err) { console.log(err); }
+    if (!err && user !== null) {
+      done(null, user);
+    } else {
+      user = new User({
+        oauthID: profile.id,
+        name: profile.displayName,
+        created: Date.now(),
+        token: accessToken
+      });
+      user.save(function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("saving user ...");
+          done(null, user);
+        }
+      });
+    }
+  });
+}));
+
+// serialize and deserialize user (passport)
+passport.serializeUser(function(user, done) {
+  console.log('serializeUser: ' + user._id);
+  done(null, user._id);
+});
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user){
+    console.log(user);
+    if(!err) done(null, user);
+    else done(err, null);
+  });
+});
+
+
+// *** main routes *** //
+
+app.use('/', mainRoutes);
+app.use('/', userRoutes);
+
+
+// *** error handlers *** //
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -31,8 +110,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
