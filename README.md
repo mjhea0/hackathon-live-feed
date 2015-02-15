@@ -16,4 +16,4 @@
 
 ## Test
 
-1. `make`
+1. `npm test`
