@@ -26,15 +26,15 @@ describe('User', function() {
 
     beforeEach(function(done) {
       var user = new User({
-          oauthID: 12345,
-          name: 'testy',
-          created: Date.now()
+        oauthID: 12345,
+        name: 'testy',
+        created: Date.now()
       });
 
       user.save(function(error) {
-          if (error) console.log('error' + error.message);
-          else console.log('no error');
-          done();
+        if (error) console.log('error' + error.message);
+        else console.log('no error');
+        done();
       });
 
     });
