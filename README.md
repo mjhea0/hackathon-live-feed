@@ -6,16 +6,6 @@
 
 Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-## Quick Start
-
-1. Clone
-1. Install dependnecies
-1. Start MongoDB
-1. Rename *_sample_config.js* to *_config.js*
-1. Update *_config.js*
-1. Run - `nodemon`
-1. Test - `mocha`
-
 ## Purpose
 
 * Create a Github live-feed application that can be displayed at the RefactorU Hackathon on April 4th, showing all commits/pull requests/merges on different projects.
