@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "make"
+    "test": "mocha"
   },
   "dependencies": {
     "body-parser": "~1.10.2",
@@ -20,6 +20,7 @@
     "mongodb": "^1.4.30",
     "mongoose": "^3.8.23",
     "morgan": "~1.5.1",
+    "nodemon": "^1.3.7",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
     "request": "^2.53.0",
