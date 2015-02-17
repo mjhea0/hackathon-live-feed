@@ -20,7 +20,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 1. Start the Mongo server
 1. Run server - `nodemon`
 1. Test - `mocha`
-1. Coverage - `istanbul cover _mocha -- tests/unit/ -R spec`
+1. Coverage - `istanbul cover _mocha -- test/ -R spec`
 1. Coverage report - `open coverage/lcov-report/index.html`
 
 ## Purpose
