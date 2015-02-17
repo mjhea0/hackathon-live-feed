@@ -14,4 +14,6 @@ deploy:
   api_key:
     secure: GtdKMYvxE9XE4nbcANpS2juBPZE6nRQw4qS84L8rUpkgFoTJXTH7HEMrdEi9Te5KcJIempCKbTRa/GXkKVP0OLy7S0Aox66eiwd4qlVQzPkZpqp2LI7ltftDg+SoKni4+DX+7euZanc3v7exhbEMs/RRT3eAZ5dUItF2FC1sCW8=
   app: pacific-beach-3008
-  on: master
+  on:
+    branch: master
+    node: '0.12'
