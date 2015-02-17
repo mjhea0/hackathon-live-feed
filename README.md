@@ -16,7 +16,6 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 1. Clone
 1. Install dependencies
-1. Create an app on Github
 1. Add environment variables (see *_config.js*)
 1. Start the Mongo server
 1. Run server - `nodemon`
