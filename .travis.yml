@@ -6,3 +6,5 @@ node_js:
   - "0.10"
 
 services: mongodb
+
+after_success: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
