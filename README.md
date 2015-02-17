@@ -20,11 +20,7 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 
 * Don't merge your own pull requests ("PR")
 * Each pull request should have **at least 2 people** check it out before merging* please comment to let us know you looked it over
-<<<<<<< HEAD
 * If you have a suggestion or want clarification on a specific part of someone's pull request, please comment on that line in their PR. You can comment on specific lines by going to the Files Changed tab, hovering on a line, then clicking the blue + button
-=======
-* If you have a suggestion or want clarification on a specific part of someone's pull request, please comment on that line in their PR. You can comment on specific lines by going to the Files Changed tab, hovering on a line, then clicking the blue + button
->>>>>>> upstream/master
 
 ## Features & Functionalities
 
@@ -49,11 +45,7 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
   * Option to turn up or mute
 
 * **Infinite scroll**
-<<<<<<< HEAD
 
-=======
-
->>>>>>> upstream/master
 * **Show recent activity since last login**
 
 * **Data visualization**
@@ -81,7 +73,4 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 * CSS Preprocessor: Sass
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> upstream/master
