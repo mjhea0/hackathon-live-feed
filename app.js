@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // *** passport *** //
 
-mongoose.connect('mongodb://localhost/hackathon'); // change URI, move to config
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/hackathon'); // change URI, move to config
 var User = require('./models/users.js');
 
 // passport github strategy
