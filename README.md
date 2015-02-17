@@ -1,12 +1,14 @@
 # hackathon-live-feed
 
+> A dashboard for displaying git activity of participants in real-time.
+
+[https://pacific-beach-3008.herokuapp.com/](https://pacific-beach-3008.herokuapp.com/)
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RefactorU/hackathon-live-feed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 [![Build Status](https://travis-ci.org/RefactorU/hackathon-live-feed.svg?branch=master)](https://travis-ci.org/RefactorU/hackathon-live-feed)
 
 [![Coverage Status](https://coveralls.io/repos/RefactorU/hackathon-live-feed/badge.svg)](https://coveralls.io/r/RefactorU/hackathon-live-feed)
-
-> A dashboard for displaying git activity of participants in real-time.
 
 Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
@@ -14,6 +16,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 1. Clone
 1. Install dependencies
+1. Create an app on Github
 1. Add environment variables (see *_config.js*)
 1. Start the Mongo server
 1. Run server - `nodemon`
@@ -34,7 +37,7 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 ## Development Workflow
 
 1. Create feature branch
-1. Develop/test locally
+1. Develop/test locally (hack!)
 1. Create PR
 1. PR triggers Travis-CI
 1. After tests pass, merge the PR (see below for details)
