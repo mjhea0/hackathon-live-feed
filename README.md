@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/RefactorU/hackathon-live-feed.svg?branch=master)](https://travis-ci.org/RefactorU/hackathon-live-feed)
 
+[![Coverage Status](https://coveralls.io/repos/RefactorU/hackathon-live-feed/badge.svg)](https://coveralls.io/r/RefactorU/hackathon-live-feed)
+
 > A dashboard for displaying git activity of participants in real-time.
 
 Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
