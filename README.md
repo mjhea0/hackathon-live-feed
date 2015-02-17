@@ -2,9 +2,21 @@
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RefactorU/hackathon-live-feed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+[![Build Status](https://travis-ci.org/RefactorU/hackathon-live-feed.svg?branch=master)](https://travis-ci.org/RefactorU/hackathon-live-feed)
+
 > A dashboard for displaying git activity of participants in real-time.
 
 Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+## Quick Start
+
+1. Clone
+1. Install dependencies
+1. Rename *_sample_config.js* to *_config.js*
+1. Update *_config.js*
+1. Start the Mongo server
+1. Run server - `nodemon`
+1. Test - `mocha`
 
 ## Purpose
 
@@ -15,6 +27,16 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 The Hackathon date is set for **April 4th.**
 We should probably allow for a week of final testing **(Saturday, March 28th)**
+
+## Development Workflow
+
+1. Create feature branch
+1. Develop/test locally
+1. Create PR
+1. PR triggers Travis-CI
+1. After tests pass, merge the PR (see below for details)
+1. Tests run again on Travis-CI
+1. Once tests pass, code is deployed automatically to staging server on Heroku
 
 ## Merge Protocol
 
@@ -71,6 +93,3 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 * Front End Framework: Angular
 * CSS Framework: Bootstrap
 * CSS Preprocessor: Sass
-
-
-
