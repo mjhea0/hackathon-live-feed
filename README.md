@@ -14,8 +14,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 1. Clone
 1. Install dependencies
-1. Rename *_sample_config.js* to *_config.js*
-1. Update *_config.js*
+1. Add environment variables (see *_config.js*)
 1. Start the Mongo server
 1. Run server - `nodemon`
 1. Test - `mocha`
