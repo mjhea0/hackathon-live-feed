@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(flash());
 app.use(session({
-  secret: 'my precious',  // change secret key, move to config
+  secret: config.secretKey,
   resave: false,
   saveUninitialized: true
 }));
@@ -49,14 +49,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // *** passport *** //
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/hackathon'); // change URI, move to config
+mongoose.connect(config.mongoURI);
 var User = require('./models/users.js');
 
 // passport github strategy
 passport.use(new GitHubStrategy({
-  clientID: config.github_client_id,
-  clientSecret: config.github_client_secret,
-  callbackURL: config.github_callback_url
+  clientID: config.githubClientID,
+  clientSecret: config.githubClientSecret,
+  callbackURL: config.githubCallbackURL
 },
 function(accessToken, refreshToken, profile, done) {
   User.findOne({ oauthID: profile.id }, function(err, user) {
