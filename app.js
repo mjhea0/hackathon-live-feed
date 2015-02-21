@@ -13,12 +13,12 @@ var express = require('express'),
 
 
 // *** config file *** //
-var config = require('./config/_config');
+var config = require('./server/_config');
 
 
 // *** routes *** //
-var mainRoutes = require('./routes/index');
-var userRoutes = require('./routes/users');
+var mainRoutes = require('./server/routes/index');
+var userRoutes = require('./server/routes/users');
 
 
 // *** express instance *** //
@@ -26,7 +26,7 @@ var app = express();
 
 
 // *** view engine *** ///
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './client', 'views'));
 app.set('view engine', 'ejs');
 
 
@@ -44,13 +44,13 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './client', 'public')));
 
 
 // *** passport *** //
 
 mongoose.connect(config.mongoURI);
-var User = require('./models/users.js');
+var User = require('./server/models/users.js');
 
 // passport github strategy
 passport.use(new GitHubStrategy({
