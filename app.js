@@ -9,7 +9,8 @@ var express = require('express'),
     passport = require('passport'),
     GitHubStrategy = require('passport-github').Strategy,
     flash = require('connect-flash'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    swig = require('swig');
 
 
 // *** config file *** //
@@ -26,9 +27,13 @@ var app = express();
 
 
 // *** view engine *** ///
-app.set('views', path.join(__dirname, './client', 'views'));
-app.set('view engine', 'ejs');
+swig = new swig.Swig();
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
 
+
+// *** static directory *** ///
+app.set('views', path.join(__dirname, './client', 'views'));
 
 
 // *** middeleware *** //

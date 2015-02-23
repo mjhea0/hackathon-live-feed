@@ -98,3 +98,4 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 * Front End Framework: Angular
 * CSS Framework: Bootstrap
 * CSS Preprocessor: Sass
+* Templates: [Swig](http://paularmstrong.github.io/swig/)

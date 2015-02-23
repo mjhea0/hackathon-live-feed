@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<br>
+
+{% if !user %}
+
+  <h1>Welcome!</h1>
+  <br><br>
+  <p><a href="/auth/github">Login with Github</a></p>
+
+{% else %}
+
+ <h1>Welcome, {{ user.name }}</h1>
+ <p>Are you an admin? {{ user.admin }}</p>
+ <br>
+ <p><a href="/github">Get Github commits for https://github.com/RefactorU/hackathon-live-feed</a></p>
+
+{% endif %}
+
+{% endblock %}
