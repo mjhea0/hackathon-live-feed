@@ -7,7 +7,7 @@ node_js:
 
 services: mongodb
 
-before_install: npm install forever
+before_install: npm install forever -g
 
 before_script: forever start ./server/bin/www
 
