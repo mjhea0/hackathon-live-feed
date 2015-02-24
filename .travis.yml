@@ -6,7 +6,12 @@ node_js:
   - '0.10'
 
 services: mongodb
-before_script: nodemon
+
+before_install:
+    - npm install forever
+    - forever start ./server/bin/www
+
+after_script: forever stop ./server/bin/www
 
 # after_success: npm run coveralls
 
