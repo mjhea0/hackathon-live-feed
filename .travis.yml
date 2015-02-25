@@ -7,6 +7,12 @@ node_js:
 
 services: mongodb
 
+before_install: npm install forever -g
+
+before_script: forever start ./server/bin/www
+
+after_script: forever stop ./server/bin/www
+
 # after_success: npm run coveralls
 
 deploy:
