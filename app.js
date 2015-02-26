@@ -20,6 +20,7 @@ var config = require('./server/_config');
 // *** routes *** //
 var mainRoutes = require('./server/routes/index');
 var userRoutes = require('./server/routes/users');
+var gitRoutes = require('./server/routes/git');
 
 
 // *** express instance *** //
@@ -105,6 +106,7 @@ passport.deserializeUser(function(id, done) {
 
 app.use('/', mainRoutes);
 app.use('/', userRoutes);
+app.use('/git', gitRoutes);
 
 
 // *** error handlers *** //

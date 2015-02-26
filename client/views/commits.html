@@ -7,10 +7,22 @@
 
 <br>
 
-<h1>Latest commit</h1>
+<div class="text-left">
 
-<p>{{ name }}</p>
-<p>{{ date }}</p>
-<p><a href="{{ url }}">Link</a></p>
+  <h1>Commits</h1>
+
+  <br><br>
+
+  {% for commit in response %}
+
+    <p>{{ commit.name }}</p>
+    <p>{{ commit.date }}</p>
+    <p><a href="{{ commit.url }}">Link</a></p>
+    <p>:)</p>
+    <br>
+
+  {% endfor %}
+
+</div>
 
 {% endblock %}
