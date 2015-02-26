@@ -14,10 +14,19 @@
 
 {% else %}
 
- <h1>Welcome, {{ user.name }}</h1>
- <p>Are you an admin? {{ user.admin }}</p>
- <br>
- <p><a href="/github">Get Github commits for https://github.com/RefactorU/hackathon-live-feed</a></p>
+<div class="text-left">
+
+  <h1>Welcome, {{ user.name }}</h1>
+  <p>Are you an admin? <strong>{{ user.admin }}</strong></p>
+  <br>
+
+  <h2>Git Commits</h2>
+  <ul>
+    <li><a href="/github">Raw JSON</a></li>
+    <li><a href="/commits">Pretty HTML (latest commit)</a></li>
+  </ul>
+
+</div>
 
 {% endif %}
 
