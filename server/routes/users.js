@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('passport');
+    passport = require('../auth');
 
 
 router.get('/account', ensureAuthenticated, function(req, res){
