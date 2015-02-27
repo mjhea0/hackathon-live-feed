@@ -58,8 +58,8 @@ describe('User', function() {
     });
   });
 
-  it ('redirect to the right path', function(done) {
-    superagent.get('http://localhost:3000/github', function(err, res) {
+  it ('redirects to the right path', function(done) {
+    superagent.get('http://localhost:3000/git/github', function(err, res) {
       if (err) console.log('error' + err.message);
       res.status.should.eql(200);
       res.text.should.containEql('Login with Github');

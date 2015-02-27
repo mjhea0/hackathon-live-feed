@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<br>
+
+<div class="text-left">
+
+  <h1>Commits</h1>
+
+  <br><br>
+
+  {% for commit in response %}
+
+    <p>{{ commit.name }}</p>
+    <p>{{ commit.date }}</p>
+    <p><a href="{{ commit.url }}">Link</a></p>
+    <p>:)</p>
+    <br>
+
+  {% endfor %}
+
+</div>
+
+{% endblock %}
