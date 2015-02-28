@@ -4,9 +4,9 @@
 
 ### Github
 
-- [ ] Github Authentication via Passport
+- [X] Github Authentication via Passport
 - [ ] Realtime Feed (commits, pull requests, mereges, new repos)
-  - [ ] Connect with Github API
+  - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
   - [ ] Socket.IO
   - [ ] ReactJS Components
