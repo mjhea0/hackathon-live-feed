@@ -17,8 +17,9 @@
 
     <p>{{ commit.name }}</p>
     <p>{{ commit.date }}</p>
-    <p><a href="{{ commit.url }}">Link</a></p>
-    <p>:)</p>
+    <p><a href="{{ commit.url }}">{{ commit.sha }}</a></p>
+    <p>{{ commit.message }}</p>
+    <p><img src="{{ commit.avatar }}"></p>
     <br>
 
   {% endfor %}
