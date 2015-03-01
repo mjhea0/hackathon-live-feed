@@ -3,10 +3,6 @@ var express = require('express'),
     passport = require('../auth');
 
 
-router.get('/account', ensureAuthenticated, function(req, res){
-  res.render('account', { user: req.user });
-});
-
 router.get('/auth/github',
   passport.authenticate('github'),
   function(req, res){});
@@ -21,6 +17,16 @@ router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+router.get('/account', ensureAuthenticated, function(req, res){
+  res.render('account', { user: req.user });
+});
+
+
+router.get('/admin', ensureAuthenticated, function(req, res){
+  res.render('admin', { user: req.user });
+});
+
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }

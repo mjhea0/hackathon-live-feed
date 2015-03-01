@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<br>
+
+{% if !user.admin %}
+
+  <p>Run along ... <a href="/">now</a></p>
+
+{% else %}
+
+<div class="text-left">
+
+  <h1>Welcome, {{ user.name }}</h1>
+  <p>You must be an admin? <strong>{{ user.admin }}</strong></p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
