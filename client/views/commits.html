@@ -15,10 +15,19 @@
 
   {% for commit in response %}
 
-    <p>{{ commit.name }}</p>
-    <p>{{ commit.date }}</p>
-    <p><a href="{{ commit.url }}">Link</a></p>
-    <p>:)</p>
+    <div class="row">
+      <div class="col-md-2">
+        <p><img src="{{ commit.avatar }}" style="max-height: 150px;"></p>
+      </div>
+      <div class="col-md-10">
+        <p>
+          {{ commit.name }}<br>
+          {{ commit.date }}<br>
+          <a href="{{ commit.url }}">{{ commit.sha }}</a><br>
+          {{ commit.message }}
+        </p>
+      </div>
+    </div>
     <br>
 
   {% endfor %}
