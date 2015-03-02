@@ -2,6 +2,8 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks('grunt-nodemon');
+
 
   grunt.initConfig({
 
@@ -27,7 +29,25 @@ module.exports = function (grunt) {
           jQuery: true
         }
       }
-    }
+    },
+
+    nodemon: {
+      dev: {
+        script: "./server/bin/www",
+        env: {
+          PORT: "3000"
+        }
+      }
+    },
+    
+    concurrent: {
+      dev: {
+        tasks: ['nodemon', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+  }
+},
 
   })
 

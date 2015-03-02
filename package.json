@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prestart":"npm install",
-    "start": "node ./server/bin/www",
-    "test": "grunt jshint && mocha",
+    "prestart": "npm install",
+    "start": "grunt nodemon",
+    "test": "mocha",
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
@@ -18,8 +18,10 @@
     "express": "~4.11.1",
     "express-session": "^1.10.2",
     "grunt": "^0.4.5",
+    "grunt-concurrent": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.0",
     "istanbul": "^0.3.5",
     "jade": "~1.9.1",
     "mocha": "^2.1.0",
