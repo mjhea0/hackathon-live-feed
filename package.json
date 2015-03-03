@@ -5,7 +5,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "grunt concurrent",
-    "test": "mocha",
+    "test": "mocha && karma start karma.conf.js",
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
@@ -41,6 +41,7 @@
   "devDependencies": {
     "karma": "^0.12.31",
     "karma-mocha": "^0.1.10",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "karma-phantomjs-launcher": "^0.1.4",
+    "load-grunt-tasks": "^3.1.0"
   }
 }
