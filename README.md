@@ -15,7 +15,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 ## Quick Start
 
 1. Clone
-1. Install dependencies
+1. Install dependencies (`npm install` will run automatically when you run `npm start`)
 1. Add environment variables (see *_config.js*)
 1. Start the Mongo server
 1. Run server - `nodemon`
