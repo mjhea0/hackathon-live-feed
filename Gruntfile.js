@@ -45,10 +45,18 @@ module.exports = function (grunt) {
         options: {
           logConcurrentOutput: true
         }
-  }
-},
+      }
+    },
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
+    },
 
   })
+
+  grunt.registerTask("test",["karma:unit"]);
 
   grunt.registerTask("default", function () {
     grunt.log.writeln("File change detected");
