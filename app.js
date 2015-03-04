@@ -53,8 +53,10 @@ app.use(express.static(path.join(__dirname, './client', 'public')));
 
 
 // *** mongo *** //
+app.set('dbUrl', process.env.MONGOLAB_URI|| config.mongoURI[app.settings.env]);
+mongoose.connect(app.get('dbUrl'));
 
-mongoose.connect(config.mongoURI);
+console.log(app.get('dbUrl'))
 
 // *** main routes *** //
 

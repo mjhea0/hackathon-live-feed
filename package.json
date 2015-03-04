@@ -36,6 +36,7 @@
     "serve-favicon": "~2.2.0",
     "should": "^5.0.0",
     "superagent": "^0.21.0",
+    "supertest": "^0.15.0",
     "swig": "^1.4.2"
   }
 }
