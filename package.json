@@ -43,6 +43,7 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "grunt-cli": "^0.1.13",
     "grunt-karma": "^0.10.1",
     "grunt-mocha-test": "^0.12.7",
     "karma": "^0.12.31",
