@@ -48,7 +48,7 @@
 
 ## Ops
 
-- [ ] Add build systems
+- [X] Add build systems
 - [ ] Add bower
 - [ ] Add unit, integration, and functinal tests
 - [ ] Add code coverage
