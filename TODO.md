@@ -54,3 +54,5 @@
 - [ ] Add code coverage
 - [ ] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
 - [ ] Finalize CI/CD workflow
+
+test
