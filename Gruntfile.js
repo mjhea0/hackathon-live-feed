@@ -50,13 +50,21 @@ module.exports = function (grunt) {
 
     karma: {
       unit: {
-        configFile: 'karma.conf.js'
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
+    },
+
+    mochaTest: {
+      test: {
+        reporter: 'spec',
+        src: './test/*.js'
       }
     },
 
   });
 
-  grunt.registerTask("test",["karma:unit"]);
+  grunt.registerTask("test",["karma:unit","mochaTest:test"]);
 
   grunt.registerTask("default", function () {
     grunt.log.writeln("File change detected");
