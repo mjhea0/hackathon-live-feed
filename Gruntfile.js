@@ -10,14 +10,14 @@ module.exports = function (grunt) {
 
     watch:{
       markup : {
-        files:["client/views/**","client/public/js/*"], 
+        files:["client/views/**","client/public/js/*"],
         tasks:["default"],
         options: {
           livereload: true,
         }
       },
       scripts : {
-        files:["client/public/js/*"], 
+        files:["client/public/js/*"],
         tasks:["jshint"]
       }
 
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    
+
     concurrent: {
       dev: {
         tasks: ['nodemon', 'watch'],
@@ -50,9 +50,9 @@ module.exports = function (grunt) {
   }
 },
 
-  })
+  });
 
   grunt.registerTask("default", function () {
     grunt.log.writeln("File change detected");
-  })
+  });
 };
