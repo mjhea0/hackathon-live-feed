@@ -23,6 +23,3 @@ before_script:
   - bower install
   - npm install -g grunt-cli
   - npm uninstall grunt # https://github.com/npm/npm/issues/3958
-
-script:
-  - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots && mocha
