@@ -25,5 +25,5 @@ before_script:
   - npm install -g grunt-cli
   - npm uninstall grunt # https://github.com/npm/npm/issues/3958
 
-  script: 
+script: 
   - node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
