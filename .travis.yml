@@ -26,4 +26,4 @@ before_script:
   - npm uninstall grunt # https://github.com/npm/npm/issues/3958
 
 script: 
-  - node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots && node_modules/.bin/mocha
+  - "node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots && node_modules/.bin/mocha"
