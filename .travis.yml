@@ -16,6 +16,10 @@ deploy:
   on:
     branch: master
     node: '0.12'
+
 before_script:
   - npm install -g bower
   - bower install
+
+script:
+  - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots && mocha
