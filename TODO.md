@@ -5,21 +5,21 @@
 ### Github
 
 - [X] Github Authentication via Passport
-- [ ] Realtime Feed (commits, pull requests, mereges, new repos)
+- [ ] Realtime Feed (commits, pull requests, merges, new repos)
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
-  - [ ] Socket.IO
   - [ ] ReactJS Components
+  - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optinal)
 
 ### Twitter (guests have access)
 - [ ] Realtime Feed
-  - [ ] Connect with Github API
-  - [ ] Socket.IO
-  - [ ] Infinite Scroll (optional)
+  - [ ] Connect with Twitter API
   - [ ] ReactJS Components
+  - [ ] Socket.IO (optional)
+  - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optinal)
 - [ ] Social icons to promote Hackathon
@@ -49,10 +49,8 @@
 ## Ops
 
 - [X] Add build systems
-- [ ] Add bower
+- [X] Add bower
 - [ ] Add unit, integration, and functinal tests
 - [ ] Add code coverage
 - [ ] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
 - [ ] Finalize CI/CD workflow
-
-test
