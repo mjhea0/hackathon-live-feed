@@ -58,6 +58,7 @@ router.get('/commits', ensureAuthenticated, function(req, res){
     var responseObj = {};
 
     for (var i = 0; i < body.length; i++) {
+      responseObj = {};
       responseObj.name = body[i].commit.author.name;
       responseObj.date = body[i].commit.author.date;
       responseObj.message = body[i].commit.message;
