@@ -5,12 +5,21 @@
 
 {% block content %}
 
-<br>
-
 {% if !user %}
 
-  <h1>Welcome!</h1>
-  <p><a href="/auth/github">Login with Github</a></p>
+  <div class="jumbotron">
+    <h1>Hackathon Live Feed</h1>
+    <p class="lead">Commit Messages. Announcements. Twitter Feed.</p>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <a href="/auth/github" class="btn btn-social btn-lg btn-github">
+          <i class="fa fa-github"></i>Sign in with Github
+        </a>
+        <br><br>
+        <img src="/images/hackthon.png" style="max-height: 100px;">
+      </div>
+    </div>
+  </div>
 
 {% else %}
 

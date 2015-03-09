@@ -23,7 +23,7 @@ describe("routes/users.js", function() {
       .get('/')
       .expect(200)
       .end(function (err, res) {
-        res.text.should.containEql('Login with Github');
+        res.text.should.containEql('Sign in with Github');
       });
       done();
   });
