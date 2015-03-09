@@ -4,6 +4,11 @@ node_js:
   - '0.12'
   - '0.11'
 
+before_script:
+  - npm install -g bower
+  - npm install -g grunt-cli
+  - bower install
+
 services: mongodb
 
 # after_success: npm run coveralls
@@ -16,7 +21,3 @@ deploy:
   on:
     branch: master
     node: '0.12'
-before_script:
-  - npm install -g bower
-  - npm install -g grunt-cli
-  - bower install
