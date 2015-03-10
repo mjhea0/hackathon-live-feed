@@ -15,6 +15,4 @@ config.mongoURI = {
   stage: process.env.MONGOLAB_URI
 };
 
-// hi
-
 module.exports = config;
