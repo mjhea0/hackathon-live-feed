@@ -3,7 +3,13 @@
 body {
   padding-top: 50px;
 }
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.github-avatars {
+  border-radius: 50px;
+  max-height: 100px;
 }
