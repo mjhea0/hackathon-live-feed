@@ -12,7 +12,7 @@ config.secretKey = process.env.secretKey || "\x1d\x0fB\x8d'\xaa\xaf\x04\xca\xfe\
 config.mongoURI = {
   development: "mongodb://localhost/hackathon",
   test: "mongodb://localhost/test",
-  stage: "process.env.MONGOLAB_URI"
+  stage: process.env.MONGOLAB_URI
 };
 
 
