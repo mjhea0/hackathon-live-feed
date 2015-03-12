@@ -10,11 +10,13 @@ router.get('/auth/github',
 router.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
+    req.flash('success', 'Successfully logged in.');
     res.redirect('/');
 });
 
 router.get('/logout', ensureAuthenticated, function(req, res){
   req.logout();
+  req.flash('success', 'Successfully logged out.');
   res.redirect('/');
 });
 
@@ -30,6 +32,7 @@ router.get('/admin', ensureAuthenticated, function(req, res){
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
+  req.flash('error', 'Please log in.');
   res.redirect('/');
 }
 

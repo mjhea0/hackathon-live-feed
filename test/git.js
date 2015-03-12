@@ -4,7 +4,7 @@ var request = require('supertest');
 var express = require('express');
 
 process.env.NODE_ENV = 'test';
-var app = require('../app');
+var app = require('../server/app');
 
 
 describe("routes/users.js", function() {

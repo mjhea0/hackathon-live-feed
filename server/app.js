@@ -9,17 +9,17 @@ var express = require('express'),
     flash = require('connect-flash'),
     mongoose = require('mongoose'),
     swig = require('swig'),
-    passport = require('./server/auth');
+    passport = require('./auth');
 
 
 // *** config file *** //
-var config = require('./server/_config');
+var config = require('./_config');
 
 
 // *** routes *** //
-var mainRoutes = require('./server/routes/index');
-var userRoutes = require('./server/routes/users');
-var gitRoutes = require('./server/routes/git');
+var mainRoutes = require('./routes/index');
+var userRoutes = require('./routes/users');
+var gitRoutes = require('./routes/git');
 
 
 // *** express instance *** //
@@ -33,7 +33,7 @@ app.set('view engine', 'html');
 
 
 // *** static directory *** ///
-app.set('views', path.join(__dirname, './client', 'views'));
+app.set('views', path.join(__dirname, './views'));
 
 
 // *** middeleware *** //
@@ -41,15 +41,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(flash());
 app.use(session({
   secret: config.secretKey,
   resave: false,
   saveUninitialized: true
 }));
+app.use(flash());
+app.use(function(req, res, next){
+  res.locals.success = req.flash('success');
+  res.locals.errors = req.flash('error');
+  next();
+});
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, './client', 'public')));
+app.use(express.static(path.join(__dirname, '../client', 'public')));
 
 
 // *** mongo *** //
