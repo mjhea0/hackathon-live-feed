@@ -9,7 +9,8 @@ var express = require('express'),
     flash = require('connect-flash'),
     mongoose = require('mongoose'),
     swig = require('swig'),
-    passport = require('./auth');
+    passport = require('./auth'),
+    keepHerokuAlive = require('./utils');
 
 
 // *** config file *** //
@@ -66,6 +67,9 @@ mongoose.connect(app.get('dbUrl'));
 app.use('/', mainRoutes);
 app.use('/', userRoutes);
 app.use('/git', gitRoutes);
+
+// ** heroku ping ** //
+keepHerokuAlive();
 
 
 // *** error handlers *** //
