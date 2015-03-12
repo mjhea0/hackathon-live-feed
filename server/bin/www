@@ -8,6 +8,15 @@ var app = require('../app');
 var debug = require('debug')('hackathon-live-feed:server');
 var http = require('http');
 
+
+/**
+ * Ping Staging server every 5 minutes to "keep alive".
+ */
+setInterval(function() {
+  http.get("https://pacific-beach-3008.herokuapp.com/");
+}, 300000);
+
+
 /**
  * Get port from environment and store in Express.
  */
