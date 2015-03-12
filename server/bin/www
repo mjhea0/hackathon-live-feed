@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../../app');
+var app = require('../app');
 var debug = require('debug')('hackathon-live-feed:server');
 var http = require('http');
 
@@ -87,4 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('Express server listening on port ' + bind);
 }

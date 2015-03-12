@@ -5,7 +5,8 @@ var express = require('express');
 var User = require("../server/models/users.js");
 
 process.env.NODE_ENV = 'test';
-var app = require('../app');
+var app = require('../server/app');
+
 
 describe("routes/users.js", function() {
 
