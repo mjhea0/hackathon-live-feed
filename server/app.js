@@ -21,6 +21,7 @@ var config = require('./_config');
 var mainRoutes = require('./routes/index');
 var userRoutes = require('./routes/users');
 var gitRoutes = require('./routes/git');
+var twitterRoutes = require('./routes/twitter');
 
 
 // *** express instance *** //
@@ -62,11 +63,13 @@ app.use(express.static(path.join(__dirname, '../client', 'public')));
 app.set('dbUrl', config.mongoURI[app.settings.env]);
 mongoose.connect(app.get('dbUrl'));
 
-// *** main routes *** //
 
+// *** main routes *** //
 app.use('/', mainRoutes);
 app.use('/', userRoutes);
 app.use('/git', gitRoutes);
+app.use('/twitter', twitterRoutes);
+
 
 // ** heroku ping ** //
 keepHerokuAlive();
