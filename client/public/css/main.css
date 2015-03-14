@@ -13,3 +13,17 @@ body {
   border-radius: 50px;
   max-height: 100px;
 }
+
+.signUpContainer {
+  background: linear-gradient(
+    rgba(0,0,0,.9),
+    rgba(0,0,0,.9)),
+    url(../images/marble.jpg);
+  overflow: visible;
+  color: #fff;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  height: 350px;
+}
