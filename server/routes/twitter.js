@@ -15,15 +15,33 @@ var client = new Twitter({
 
 router.get('/', ensureAuthenticated, function(req, res) {
 
-  client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
-    stream.on('data', function(tweet) {
-      res.send(tweet.text);
-      // add res.render
-    });
-    stream.on('error', function(error) {
-      throw error;
-    });
-  });
+  res.send('almost done!');
+
+  // client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
+  //   stream.on('data', function(tweet) {
+  //     res.send(tweet.text);
+  //     // add res.render
+  //   });
+  //   stream.on('error', function(error) {
+  //     throw error;
+  //   });
+  // });
+
+});
+
+router.get('/tweets', ensureAuthenticated, function(req, res) {
+
+  res.send('almost done!');
+
+  // client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
+  //   stream.on('data', function(tweet) {
+  //     res.send(tweet.text);
+  //     // add res.render
+  //   });
+  //   stream.on('error', function(error) {
+  //     throw error;
+  //   });
+  // });
 
 });
 
