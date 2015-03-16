@@ -13,7 +13,7 @@ var client = new Twitter({
 });
 
 
-router.get('/tweets', function(req, res) {
+router.get('/', ensureAuthenticated, function(req, res) {
 
   client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
     stream.on('data', function(tweet) {
