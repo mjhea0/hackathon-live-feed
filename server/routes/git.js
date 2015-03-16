@@ -4,7 +4,7 @@ var express = require('express'),
     request = require("request");
 
 
-router.get('/github', ensureAuthenticated, function(req, res){
+router.get('/', ensureAuthenticated, function(req, res){
 
   var owner = 'RefactorU';
   var repo = 'hackathon-live-feed';
