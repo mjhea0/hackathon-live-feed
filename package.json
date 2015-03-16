@@ -50,6 +50,7 @@
     "grunt-nodemon": "^0.4.0",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.2",
+    "gulp-mocha": "^2.0.0",
     "gulp-nodemon": "^1.0.5",
     "karma": "^0.12.31",
     "karma-cli": "0.0.4",
