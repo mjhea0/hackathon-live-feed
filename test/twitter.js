@@ -7,7 +7,7 @@ process.env.NODE_ENV = 'test';
 var app = require('../server/app');
 
 
-describe("routes/index.js", function() {
+describe("routes/twitter.js", function() {
 
   before(function(done) {
     done();
@@ -17,12 +17,12 @@ describe("routes/index.js", function() {
     done();
   });
 
-  it ('GET "/" should 200', function(done) {
+  it ('GET "/twitter" should redirect if user is not logged in', function(done) {
     request(app)
-      .get('/')
+      .get('/twitter')
       .expect(200)
       .end(function (err, res) {
-        res.text.should.containEql('Sign in with Github');
+        res.header.location.should.eql('/');
       });
       done();
   });

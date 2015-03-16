@@ -9,6 +9,7 @@
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
   - [ ] ReactJS Components
+  - [ ] Re-structure as RESTful API
   - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
@@ -18,6 +19,7 @@
 - [ ] Realtime Feed
   - [ ] Connect with Twitter API
   - [ ] ReactJS Components
+    - [ ] Re-structure as RESTful API
   - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
