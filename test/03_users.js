@@ -17,14 +17,14 @@ describe("routes/users.js", function() {
       created: Date.now()
     });
 
-    user.save();
-    done();
+    user.save(function (err, results) {
+      done();
+    });
 
   });
 
   after(function(done) {
-    User.remove({});
-    mongoose.disconnect();
+    User.collection.drop();
     done();
   });
 
@@ -32,6 +32,13 @@ describe("routes/users.js", function() {
     User.findOne({ oauthID: 12345, name: "testy" }, function(err, user) {
       user.name.should.eql('testy');
       user.oauthID.should.eql(12345);
+      done();
+    });
+  });
+
+  it('finds all users', function(done) {
+    User.find({}, function(err, user) {
+      user.length.should.eql(1);
       done();
     });
   });
