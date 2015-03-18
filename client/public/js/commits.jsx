@@ -4,25 +4,30 @@
 var Commit = React.createClass({
   render: function () {
     return (
-      <div>
-       <p>Avatar<img></img></p>
-       <p>Name{this.props.name}</p>
-       <p>Date:</p>
-       <p>url</p><p>sha</p>
-       <p>message</p>
+      <div className="row">
+        <div className="col-md-2">
+          <p><img className="github-avatars" src={this.props.avatar}></img></p>
+        </div>
+        <div className="col-md-10">
+           <p>{this.props.name}</p>
+           <p>{this.props.date}</p>
+           <p>{this.props.message}</p>
+           <p>{this.props.url}</p>
+            <p>{this.props.sha}</p>
+          </div>
      </div>
-      )
+      );
   }
-})
+});
 
 var Commits = React.createClass({
   loadCommitsFromServer: function() {
      $.ajax({
        url: this.props.url,
-       // dataType: 'json',
+       dataType: 'json',
        success: function(data) {
          console.log(data.response)
-         this.setState(data.response);
+         this.setState({commits:data.response});
        }.bind(this),
        error: function(xhr, status, err) {
          console.error(this.props.url, status, err.toString());
@@ -34,33 +39,23 @@ var Commits = React.createClass({
        setInterval(this.loadCommitsFromServer, this.props.pollInterval);
    },
    getInitialState: function() {
-     return {commits: []};
+     return {
+      commits: []
+    };
    },
    render: function () {
-     return (
+
+    var commitList = this.state.commits.map(function (commit) {
+        return (
+          <Commit name={commit.name} message={commit.message} date={commit.date} avatar={commit.avatar} sha={commit.sha} url={commit.url}></Commit>
+        );
+      });
+      return (
         <div>
-          {this.state.commits.map(function (commit){
-            return (
-              <div>
-                <Commit name={commit.name}/>
-              </div>
-              )
-          })}
+          {commitList}
         </div>
-     );
-   },
+      );
+   }
 })
 
-React.render(<Commits url="/git/fetchcommits" pollInterval={9000}></Commits>, document.getElementById('test'));
-// React.render(<Commits data={response} pollInterval={2000}></Commits>, document.getElementById('test'));
-
-
-// var HelloMessage = React.createClass({displayName: "HelloMessage",
-//   render: function() {
-//     return React.createElement("div", null, "Commit: ", this.props.__);
-//   }
-// });
-
-
-// console.log('ran')
-// React.render(React.createElement(HelloMessage), document.getElementById('test2'));
+React.render(<Commits url="/git/fetchcommits" pollInterval={20000}></Commits>, document.getElementById('test'));
