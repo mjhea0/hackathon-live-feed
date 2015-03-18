@@ -31,7 +31,6 @@ router.get('/tweets', ensureAuthenticated, function(req, res) {
     if (!error) {
       var responseArr = [];
       var responseObj = {};
-      console.log(tweets);
       for (var i = 0; i < tweets.length; i++) {
         responseObj = {};
         responseObj.text = tweets[i].text;
