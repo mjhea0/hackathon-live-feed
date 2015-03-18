@@ -26,17 +26,19 @@ router.get('/', ensureAuthenticated, function(req, res) {
 
 router.get('/tweets', ensureAuthenticated, function(req, res) {
 
-  res.send('almost done!');
-
-  // client.stream('statuses/filter', {track: 'javascript'}, function(stream) {
-  //   stream.on('data', function(tweet) {
-  //     res.send(tweet.text);
-  //     // add res.render
-  //   });
-  //   stream.on('error', function(error) {
-  //     throw error;
-  //   });
-  // });
+  var params = {screen_name: 'refactoru'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response){
+    if (!error) {
+      var responseArr = [];
+      var responseObj = {};
+      for (var i = 0; i < tweets.length; i++) {
+        responseObj = {};
+        responseObj.text = tweets[i].text;
+        responseArr.push(responseObj);
+      }
+      res.render('tweets', {response:responseArr});
+    }
+  });
 
 });
 

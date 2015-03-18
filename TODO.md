@@ -16,10 +16,10 @@
   - [ ] Sound Effects on new activy (optinal)
 
 ### Twitter (guests have access)
-- [ ] Realtime Feed
-  - [ ] Connect with Twitter API
+- [X] Realtime Feed
+  - [X] Connect with Twitter API
   - [ ] ReactJS Components
-    - [ ] Re-structure as RESTful API
+  - [ ] Re-structure as RESTful API
   - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
