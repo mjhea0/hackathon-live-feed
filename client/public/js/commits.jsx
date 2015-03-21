@@ -59,4 +59,4 @@ var Commits = React.createClass({
    }
 })
 
-React.render(<Commits url="/git/fetchcommits" pollInterval={20000}></Commits>, document.getElementById('test'));
+React.render(<Commits url="/git/fetchcommits" pollInterval={20000}></Commits>, document.getElementById('commits-component'));
