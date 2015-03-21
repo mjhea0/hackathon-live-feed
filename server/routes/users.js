@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
-    passportGithub = require('../auth/github');
+    passportGithub = require('../auth/github'),
+    passportLocal = require('../auth/local');
 
 
 router.get('/auth/github',
@@ -14,13 +15,18 @@ router.get('/auth/github/callback',
     res.redirect('/');
 });
 
-// router.get('/auth/login', function(req, res) {
-//   res.render('login', { user : req.user });
-// });
+router.get('/auth/login', function(req, res) {
+  req.flash('success', 'Successfully logged in.');
+  res.render('login', { user : req.user });
+});
 
-// router.post('/auth/login', passport.authenticate('local'), function(req, res) {
-//   res.redirect('/');
-// });
+router.post(
+  '/auth/login',
+  passportLocal.authenticate('local',
+    { failureRedirect: '/auth/login', failureFlash: true }),
+  function(req, res) {
+  res.redirect('/');
+});
 
 router.get('/auth/logout', ensureAuthenticated, function(req, res){
   req.logout();

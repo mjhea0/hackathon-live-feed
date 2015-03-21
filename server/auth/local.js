@@ -1,35 +1,27 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 
-var User = require('./models/users.js');
-var config = require('./_config');
+var User = require('../models/users.js');
+var config = require('../_config');
 
 
 // passport local strategy
-var localAuth = new LocalStrategy(
-  {passReqToCallback: true},
+passport.use(new LocalStrategy({
+  passReqToCallback: true
+},
   function(req, username, password, done) {
     User.findOne({ 'local.username': username }, function(err, user) {
       if (err) { return done(err); }
-
-      if (!user || !user.validPassword(password)) {
-        return done(null, false, req.flash('danger.', 'Incorrect username and/or password.'));
+      if (!user) {
+        return done(null, false, { message: req.flash('success', 'Incorrect username and/or password.') });
       }
-      user.comparePassword(password, function(err, isMatch){
-        if (err) return next(err);
-
-        if(!isMatch){
-          return done(null, false, req.flash('danger', 'Incorrect username and/or password.'));
-        }
-        else {
-          return done(null, user);
-        }
-      });
-
-
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: req.flash('success', 'Incorrect username and/or password.') });
+      }
+      return done(null, user);
     });
   }
-);
+));
 
 
 // serialize and deserialize the user (passport)

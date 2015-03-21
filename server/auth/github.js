@@ -4,6 +4,7 @@ var passport = require('passport'),
 var User = require('../models/users.js');
 var config = require('../_config');
 
+
 // passport github strategy
 passport.use(new GitHubStrategy({
   clientID: config.githubClientID,

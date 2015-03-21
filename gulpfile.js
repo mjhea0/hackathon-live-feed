@@ -12,6 +12,7 @@ gulp.task('test', function () {
   return gulp.src('./test/*.js', {read: false})
     .pipe(mocha())
     .once('error', function () {
+      gutil.log();
       process.exit(1);
     })
     .once('end', function () {
