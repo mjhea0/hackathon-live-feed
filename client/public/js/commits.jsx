@@ -26,7 +26,6 @@ var Commits = React.createClass({
        url: this.props.url,
        dataType: 'json',
        success: function(data) {
-         console.log(data.response)
          this.setState({commits:data.response});
        }.bind(this),
        error: function(xhr, status, err) {
