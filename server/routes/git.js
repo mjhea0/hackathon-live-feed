@@ -1,6 +1,5 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('../auth'),
     request = require("request");
 
 
@@ -9,7 +8,7 @@ router.get('/', ensureAuthenticated, function(req, res){
   var owner = 'RefactorU';
   var repo = 'hackathon-live-feed';
   var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/commits';
-  var authToken = req.user.token;
+  var authToken = req.user.github.token;
 
   var options = {
     method: 'get',
@@ -37,7 +36,7 @@ router.get('/commits', ensureAuthenticated, function(req, res){
   var owner = 'RefactorU';
   var repo = 'hackathon-live-feed';
   var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/commits';
-  var authToken = req.user.token;
+  var authToken = req.user.github.token;
 
   var options = {
     method: 'get',

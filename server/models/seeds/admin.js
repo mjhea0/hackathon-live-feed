@@ -1,15 +1,13 @@
-var User = require('../user');
+var Admin = require('../user');
 var passport = require('passport');
 
 var seedAdmin = function() {
 
-  User.find({}, function(err, documents) {
+  Admin.find({}, function(err, documents) {
 
     if(documents.length === 0){
-
-      // User.register(new User({username: 'ad@min.com', admin: true}),
-      //   'admin', function(err, user) {});
-
+      Admin.register(new Admin({username: 'ad@min.com', admin: true}),
+        'admin', function(err, user) {});
       console.log('Dummy admin added!');
     }
 

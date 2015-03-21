@@ -1,11 +1,8 @@
-// authentication
-
 var passport = require('passport'),
-    GitHubStrategy = require('passport-github').Strategy,
-    LocalStrategy = require('passport-local').Strategy;
+    GitHubStrategy = require('passport-github').Strategy;
 
-var User = require('./models/users.js');
-var config = require('./_config');
+var User = require('../models/users.js');
+var config = require('../_config');
 
 // passport github strategy
 passport.use(new GitHubStrategy({
@@ -14,16 +11,17 @@ passport.use(new GitHubStrategy({
   callbackURL: config.githubCallbackURL
 },
 function(accessToken, refreshToken, profile, done) {
-  User.findOne({ oauthID: profile.id }, function(err, user) {
+  User.findOne({ 'github.oauthID': profile.id }, function(err, user) {
     if(err) { console.log(err); }
     if (!err && user !== null) {
       done(null, user);
     } else {
       user = new User({
-        oauthID: profile.id,
-        name: profile.displayName,
-        created: Date.now(),
-        token: accessToken
+          github: {
+            username: profile.displayName,
+            oauthID: profile.id,
+            token: accessToken
+          }
       });
       user.save(function(err) {
         if(err) {
@@ -36,22 +34,6 @@ function(accessToken, refreshToken, profile, done) {
     }
   });
 }));
-
-// passport local strategy
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
 
 // serialize and deserialize user (passport)
 passport.serializeUser(function(user, done) {

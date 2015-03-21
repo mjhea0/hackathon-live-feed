@@ -1,12 +1,38 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    bcrypt = require('bcrypt');
 
 // create the user model
-var User = mongoose.model('users', {
-  oauthID: Number,
-  name: String,
-  created: Date,
-  token: String,
-  admin: { type: Boolean, default: false }
+var userSchema = mongoose.Schema({
+  admin: { type: Boolean, default: false },
+  local: {
+    username: String,
+    password: String
+  },
+  github: {
+    username: String,
+    oauthID: Number,
+    token: String,
+  },
+  email: String
 });
 
-module.exports = User;
+userSchema.methods.generateHash = function(password, cb){
+  bcrypt.genSalt(10, function(err, salt){
+    if (err) console.log (err);
+    bcrypt.hash(password, salt, function(err, hash){
+      if (err) console.log (err);
+      return cb(err, hash);
+    });
+  });
+};
+
+userSchema.methods.comparePassword = function(candidatePassword, next){
+  bcrypt.compare(candidatePassword, this.local.password, function(err, isMatch){
+    if(err){
+      return next(err);
+    }
+    return next(null, isMatch);
+  });
+};
+
+module.exports = mongoose.model('User', userSchema);
