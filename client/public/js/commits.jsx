@@ -47,7 +47,9 @@ var Commits = React.createClass({
 
     var commitList = this.state.commits.map(function (commit) {
         return (
-          <Commit name={commit.name} message={commit.message} date={commit.date} avatar={commit.avatar} sha={commit.sha} url={commit.url}></Commit>
+          <Commit name={commit.name} message={commit.message} date={commit.date} 
+          avatar={commit.avatar} sha={commit.sha} url={commit.url} key={commit.sha}>
+          </Commit>
         );
       });
       return (
