@@ -14,6 +14,14 @@ router.get('/auth/github/callback',
     res.redirect('/');
 });
 
+router.get('/login', function(req, res) {
+  res.render('login', { user : req.user });
+});
+
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  res.redirect('/');
+});
+
 router.get('/logout', ensureAuthenticated, function(req, res){
   req.logout();
   req.flash('success', 'Successfully logged out.');
