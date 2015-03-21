@@ -16,16 +16,21 @@ router.get('/auth/github/callback',
 });
 
 router.get('/auth/login', function(req, res) {
-  req.flash('success', 'Successfully logged in.');
-  res.render('login', { user : req.user });
+  res.render('login', { user : req.user, message: req.flash('loginMessage') });
 });
 
-router.post(
-  '/auth/login',
-  passportLocal.authenticate('local',
-    { failureRedirect: '/auth/login', failureFlash: true }),
-  function(req, res) {
-  res.redirect('/');
+router.post('/auth/login', function(req, res, next) {
+  passportLocal.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) {
+      req.session.messages =  [info.message];
+      return res.redirect('/auth/login');
+    }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/');
+    });
+  })(req, res, next);
 });
 
 router.get('/auth/logout', ensureAuthenticated, function(req, res){

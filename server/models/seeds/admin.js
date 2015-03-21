@@ -9,13 +9,18 @@ var seedAdmin = function() {
 
       var user = new User();
 
-        user.local.password = 'admin';
+      user.generateHash('admin', function(err, hash){
+
+        user.admin = true;
+        user.local.password = hash;
         user.local.username = 'ad@min.com';
 
-      user.save(function (err, results) {
-        if (!err) {
-          console.log('dummy user added!');
-        }
+        user.save(function(err){
+          if (!err) {
+            console.log("user added!");
+          }
+        });
+
       });
 
     }

@@ -6,19 +6,20 @@ var config = require('../_config');
 
 
 // passport local strategy
-passport.use(new LocalStrategy({
-  passReqToCallback: true
-},
-  function(req, username, password, done) {
-    User.findOne({ 'local.username': username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: req.flash('success', 'Incorrect username and/or password.') });
+passport.use(new LocalStrategy(function(username, password, done) {
+  User.findOne({ 'local.username': username }, function(err, user) {
+    if (err) { return done(err); }
+    if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+    user.comparePassword(password, function(err, isMatch) {
+      if (err) return done(err);
+      if(isMatch) {
+        return done(null, user);
+      } else {
+        return done(null, false, { message: 'Invalid password' });
       }
-      return done(null, user, { message: req.flash('success', 'Successfully logged in.') });
     });
-  }
-));
+  });
+}));
 
 
 // serialize and deserialize the user (passport)

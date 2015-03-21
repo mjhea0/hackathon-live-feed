@@ -54,6 +54,18 @@ describe("routes/users.js", function() {
       done();
   });
 
+  // it ('GET "/admin" should display admin page if an admin is logged in', function(done) {
+  //   request(app)
+  //     .post('/auth/login')
+  //     .send({username: 'test@test.com', password: 'admin' })
+  //     .expect(302)
+  //     .end(function (err, res) {
+  //       res.header.location.should.eql('/admin');
+  //     });
+  //     done();
+  // });
+
+
   it ('GET "/auth/logout" should redirect if user is not logged in', function(done) {
     request(app)
       .get('/auth/logout')
