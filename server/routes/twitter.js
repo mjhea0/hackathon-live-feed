@@ -42,6 +42,23 @@ router.get('/tweets', ensureAuthenticated, function(req, res) {
 
 });
 
+router.get('/fetchtweets', ensureAuthenticated, function(req, res) {
+
+  var params = {screen_name: 'refactoru'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response){
+    if (!error) {
+      var responseArr = [];
+      var responseObj = {};
+      for (var i = 0; i < tweets.length; i++) {
+        responseObj = {};
+        responseObj.text = tweets[i].text;
+        responseArr.push(responseObj);
+      }
+      res.send({response:responseArr, data: req.body});
+    }
+  });
+
+});
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
