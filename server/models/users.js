@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    bcrypt = require('bcrypt');
+    passportLocalMongoose = require('passport-local-mongoose');
 
 // create the user model
 var userSchema = mongoose.Schema({
@@ -16,23 +16,6 @@ var userSchema = mongoose.Schema({
   email: String
 });
 
-userSchema.methods.generateHash = function(password, cb){
-  bcrypt.genSalt(10, function(err, salt){
-    if (err) console.log (err);
-    bcrypt.hash(password, salt, function(err, hash){
-      if (err) console.log (err);
-      return cb(err, hash);
-    });
-  });
-};
+userSchema.plugin(passportLocalMongoose);
 
-userSchema.methods.comparePassword = function(candidatePassword, next){
-  bcrypt.compare(candidatePassword, this.local.password, function(err, isMatch){
-    if(err){
-      return next(err);
-    }
-    return next(null, isMatch);
-  });
-};
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('users', userSchema);

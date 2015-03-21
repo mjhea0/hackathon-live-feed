@@ -15,10 +15,7 @@ passport.use(new LocalStrategy({
       if (!user) {
         return done(null, false, { message: req.flash('success', 'Incorrect username and/or password.') });
       }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: req.flash('success', 'Incorrect username and/or password.') });
-      }
-      return done(null, user);
+      return done(null, user, { message: req.flash('success', 'Successfully logged in.') });
     });
   }
 ));
