@@ -4,13 +4,13 @@ var express = require('express'),
 
 var config = require('../_config');
 
+
 var client = new Twitter({
   consumer_key: config.twitterConsumerKey,
   consumer_secret: config.twitterConsumerSecret,
   access_token_key: config.twitterAccessTokenKey,
   access_token_secret: config.twitterAccessTokenSecret
 });
-
 
 router.get('/', ensureAuthenticated, function(req, res) {
 
