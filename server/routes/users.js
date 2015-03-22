@@ -16,7 +16,7 @@ router.get('/auth/github/callback',
 });
 
 router.get('/auth/login', function(req, res) {
-  res.render('login', { user : req.user, message: req.flash('loginMessage') });
+  res.render('login');
 });
 
 router.post('/auth/login', function(req, res, next) {

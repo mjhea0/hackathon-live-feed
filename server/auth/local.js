@@ -6,16 +6,20 @@ var config = require('../_config');
 
 
 // passport local strategy
-passport.use(new LocalStrategy(function(username, password, done) {
+passport.use(new LocalStrategy({passReqToCallback: true}, function(req, username, password, done) {
   User.findOne({ 'local.username': username }, function(err, user) {
-    if (err) { return done(err); }
-    if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+    if (err) {
+      return done(err);
+    }
+    if (!user) {
+      return done(null, false, { message: req.flash('success', 'Invalid username and/or password.')});
+    }
     user.comparePassword(password, function(err, isMatch) {
       if (err) return done(err);
       if(isMatch) {
-        return done(null, user);
+        return done(null, user, { message: req.flash('success', 'Welcome!.')});
       } else {
-        return done(null, false, { message: 'Invalid password' });
+        return done(null, false, { message: req.flash('success', 'Invalid username and/or password')});
       }
     });
   });
