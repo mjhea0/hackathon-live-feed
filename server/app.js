@@ -9,12 +9,19 @@ var express = require('express'),
     flash = require('connect-flash'),
     mongoose = require('mongoose'),
     swig = require('swig'),
-    passport = require('./auth'),
+    passport = require('passport'),
     keepHerokuAlive = require('./utils');
 
 
 // *** config file *** //
 var config = require('./_config');
+
+
+// *** seed the database *** //
+if (process.env.NODE_ENV === 'development') {
+  var seedAdmin = require('./models/seeds/admin.js');
+  seedAdmin();
+}
 
 
 // *** routes *** //

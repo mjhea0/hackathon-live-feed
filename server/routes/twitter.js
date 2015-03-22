@@ -1,6 +1,5 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('../auth'),
     Twitter = require('twitter');
 
 var config = require('../_config');
