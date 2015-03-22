@@ -1,10 +1,10 @@
-var should = require("should");
-var mongoose = require('mongoose');
-var request = require('supertest');
-var express = require('express');
-
 process.env.NODE_ENV = 'test';
-var app = require('../server/app');
+
+var should = require("should"),
+    mongoose = require('mongoose'),
+    request = require('supertest'),
+    express = require('express'),
+    app = require('../server/app');
 
 
 describe("routes/index.js", function() {
