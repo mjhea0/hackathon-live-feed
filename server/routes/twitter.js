@@ -1,9 +1,9 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('../auth'),
     Twitter = require('twitter');
 
 var config = require('../_config');
+
 
 var client = new Twitter({
   consumer_key: config.twitterConsumerKey,
@@ -11,7 +11,6 @@ var client = new Twitter({
   access_token_key: config.twitterAccessTokenKey,
   access_token_secret: config.twitterAccessTokenSecret
 });
-
 
 router.get('/', ensureAuthenticated, function(req, res) {
 

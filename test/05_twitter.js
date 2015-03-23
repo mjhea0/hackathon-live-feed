@@ -20,8 +20,9 @@ describe("routes/twitter.js", function() {
   it ('GET "/twitter" should redirect if user is not logged in', function(done) {
     request(app)
       .get('/twitter')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(302);
         res.header.location.should.eql('/');
       });
       done();

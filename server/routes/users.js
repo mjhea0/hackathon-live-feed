@@ -1,18 +1,45 @@
 var express = require('express'),
     router = express.Router(),
-    passport = require('../auth');
+    passportGithub = require('../auth/github'),
+    passportLocal = require('../auth/local');
 
 
-router.get('/auth/github',
-  passport.authenticate('github'),
+// github auth
+
+router.get('/github',
+  passportGithub.authenticate('github'),
   function(req, res){});
 
-router.get('/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: '/' }),
+router.get('/github/callback',
+  passportGithub.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     req.flash('success', 'Successfully logged in.');
     res.redirect('/');
 });
+
+
+// local auth
+
+router.get('/login', function(req, res) {
+  res.render('login');
+});
+
+router.post('/login', function(req, res, next) {
+  console.log(req.body);
+  passportLocal.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) {
+      return res.redirect('/auth/login');
+    }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/');
+    });
+  })(req, res, next);
+});
+
+
+// user management
 
 router.get('/logout', ensureAuthenticated, function(req, res){
   req.logout();
@@ -23,7 +50,6 @@ router.get('/logout', ensureAuthenticated, function(req, res){
 router.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
-
 
 router.get('/admin', ensureAuthenticated, function(req, res){
   res.render('admin', { user: req.user });

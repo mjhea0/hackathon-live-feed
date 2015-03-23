@@ -9,27 +9,11 @@
 
   <h1>Commits</h1>
 
+  <div id="commits-component"></div>
+ 
+  <script src="{{ baseurl }}/js/commits.jsx" type="text/jsx"></script>
+  
   <br><br>
-
-  {% for commit in response %}
-
-    <div class="row">
-      <div class="col-md-2">
-        <p><img src="{{ commit.avatar }}" class="github-avatars"></p>
-      </div>
-      <div class="col-md-10">
-        <p>
-          {{ commit.name }}<br>
-          {{ commit.date }}<br>
-          <a href="{{ commit.url }}">{{ commit.sha }}</a><br>
-          {{ commit.message }}
-        </p>
-      </div>
-    </div>
-    <br>
-
-  {% endfor %}
-
 </div>
 
 {% endblock %}

@@ -20,8 +20,9 @@ describe("routes/git.js", function() {
   it ('GET "/git" should redirect if user is not logged in', function(done) {
     request(app)
       .get('/git')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(302);
         res.header.location.should.eql('/');
       });
       done();

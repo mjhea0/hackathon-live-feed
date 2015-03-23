@@ -8,7 +8,7 @@
 - [ ] Realtime Feed (commits, pull requests, merges, new repos)
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
-  - [ ] ReactJS Components
+  - [X] ReactJS Components
   - [ ] Re-structure as RESTful API
   - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
@@ -41,9 +41,9 @@
 
 ### Splash Page
 - [ ] Show hackathon details
-- [ ] User login
+- [X] User login
 - [ ] Countdown to hackthon
-- [ ] Create unique URL
+- [ ] Create unique URL for an individual hackathon?
 - [ ] Connected users (from Github)
 - [ ] Contact Admin form
 - [ ] Email Invite (optional)
@@ -54,5 +54,5 @@
 - [X] Add bower
 - [ ] Add unit, integration, and functinal tests
 - [ ] Add code coverage
-- [ ] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
+- [X] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
 - [ ] Finalize CI/CD workflow

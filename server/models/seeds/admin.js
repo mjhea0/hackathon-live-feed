@@ -1,4 +1,4 @@
-var User = require('../user');
+var User = require('../users');
 var passport = require('passport');
 
 var seedAdmin = function() {
@@ -7,10 +7,22 @@ var seedAdmin = function() {
 
     if(documents.length === 0){
 
-      // User.register(new User({username: 'ad@min.com', admin: true}),
-      //   'admin', function(err, user) {});
+      var user = new User();
 
-      console.log('Dummy admin added!');
+      user.generateHash('admin', function(err, hash){
+
+        user.admin = true;
+        user.local.password = hash;
+        user.local.username = 'ad@min.com';
+
+        user.save(function(err){
+          if (!err) {
+            console.log("user added!");
+          }
+        });
+
+      });
+
     }
 
   });
