@@ -1,6 +1,6 @@
 # hackathon-live-feed
 
-> A dashboard for displaying git activity of participants in real-time.
+A dashboard for displaying live-feed activity - Git commits, Tweets, and announcement - of participants in real-time. Built for the [RefactorU](http://www.refactoru.com/) Hackathon taking place on April 4th
 
 Staging: [https://pacific-beach-3008.herokuapp.com/](https://pacific-beach-3008.herokuapp.com/)
 
@@ -16,7 +16,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 1. Clone
 1. Install dependencies (`npm install` will run automatically when you run `npm start`)
-1. Add environment variables (see *_config.js*)
+1. Add environment variables (see *server/_config.js*)
 1. Start the Mongo server
 1. Run server - `nodemon`
 1. Test - `mocha`
@@ -86,8 +86,8 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 ## Stack
 
 * Issue Tracker: Github Issues
-* Build System: Grunt
-* Testing: Mocha, Chai, Travis
+* Build System: Grunt, Gulp
+* Testing: Mocha, Chai, Travis, Istanbul (coverage)
 * Language Runtime: ES5
 * Package Mgmt: npm, browserify
 * Utility: Underscore
@@ -95,7 +95,7 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 * Server: Node, Express
 * Realtime: SocketIO
 * Database: MongoDB/Mongoose
-* Front End Framework: Angular
+* Front End: React
 * CSS Framework: Bootstrap
 * CSS Preprocessor: Sass
 * Templates: [Swig](http://paularmstrong.github.io/swig/)
