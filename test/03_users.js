@@ -20,17 +20,21 @@ describe("routes/users.js - logged in", function() {
       }
     });
 
-    regularUser.save(function (err, results) {});
+    regularUser.save(function (err, results) {
+      if (err) console.log('error' + err.message);
+    });
 
     // admin user
     var adminUser = new User({
       local: {
         username: 'test@test.com',
-        password: 54321,
+        password: 'password',
       }
     });
 
-    adminUser.save(function (err, results) {});
+    adminUser.save(function (err, results) {
+      if (err) console.log('error' + err.message);
+    });
 
     done();
 
@@ -43,6 +47,7 @@ describe("routes/users.js - logged in", function() {
 
   it('finds a regular user by username', function(done) {
     User.findOne({ 'github.oauthID': 12345, 'github.username': 'testy' }, function(err, user) {
+      user.should.be.an.instanceOf(User);
       user.github.username.should.eql('testy');
       user.github.oauthID.should.eql(12345);
       done();
@@ -50,9 +55,10 @@ describe("routes/users.js - logged in", function() {
   });
 
   it('finds a admin user by username', function(done) {
-    User.findOne({ 'local.username': 'test@test.com', 'local.password': 54321 }, function(err, user) {
+    User.findOne({ 'local.username': 'test@test.com', 'local.password': 'password' }, function(err, user) {
+      user.should.be.an.instanceOf(User);
       user.local.username.should.eql('test@test.com');
-      user.local.password.should.eql('54321');
+      user.local.password.should.eql('password');
       done();
     });
   });
@@ -64,30 +70,30 @@ describe("routes/users.js - logged in", function() {
     });
   });
 
+  // it ('login', function(done) {
+  //   request(app)
+  //     .post('/auth/login')
+  //     .field('username', 'test@test.com')
+  //     .field('password', 'password')
+  //     .expect('Content-Type', /plain/)
+  //     .end(function (err, res) {
+  //       res.statusCode.should.eql(302);
+  //       res.header.location.should.eql('/');
+  //     });
+  //     done();
+  // });
 
-it ('login', function(done) {
-  request(app)
-    .post('/auth/login')
-    .send({ email: 'test@test.com', password: '54321' })
-    .expect(302);
-    done();
-  });
 
-  afterEach(function(done) {
-    User.remove({ username: 'test@test.com' }, function() {
-      done();
-    });
-  });
-
-  it ('GET "/admin" should display admin page if an admin is logged in', function(done) {
-    request(app)
-      .get('/auth/admin')
-      .expect(200)
-      .end(function (err, res) {
-        res.header.location.should.eql('/');
-      });
-      done();
-  });
+  // it ('GET "/admin" should display admin page if an admin is logged in', function(done) {
+  //   request(app)
+  //     .get('/auth/admin')
+  //     .end(function (err, res) {
+  //       should.not.exist(err);
+  //       res.statusCode.should.eql(200);
+  //       res.header.location.should.eql('/auth/admin');
+  //     });
+  //     done();
+  // });
 
 
 });
@@ -106,8 +112,9 @@ describe("routes/users.js - not logged in", function() {
   it ('GET "/auth/admin" should redirect if user is not logged in', function(done) {
     request(app)
       .get('/auth/admin')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(302);
         res.header.location.should.eql('/');
       });
       done();
@@ -117,8 +124,9 @@ describe("routes/users.js - not logged in", function() {
   it ('GET "/auth/logout" should redirect if user is not logged in', function(done) {
     request(app)
       .get('/auth/logout')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(302);
         res.header.location.should.eql('/');
       });
       done();
@@ -127,8 +135,9 @@ describe("routes/users.js - not logged in", function() {
   it ('GET "/auth/account" should redirect if user is not logged in', function(done) {
     request(app)
       .get('/auth/account')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(302);
         res.header.location.should.eql('/');
       });
       done();

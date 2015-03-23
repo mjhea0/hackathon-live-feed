@@ -20,9 +20,11 @@ describe("routes/index.js", function() {
   it ('GET "/" should 200', function(done) {
     request(app)
       .get('/')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(200);
         res.text.should.containEql('Sign in with Github');
+        res.text.should.containEql('Admin Login');
       });
       done();
   });

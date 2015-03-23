@@ -25,11 +25,11 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', function(req, res, next) {
+  console.log(req.body);
   passportLocal.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
     if (!user) {
-      req.session.messages =  [info.message];
-      return res.redirect('/login');
+      return res.redirect('/auth/login');
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
