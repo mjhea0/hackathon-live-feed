@@ -18,7 +18,7 @@ var config = require('./_config');
 
 
 // *** seed the database *** //
-if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'stage') {
+if (process.env.NODE_ENV === 'development') {
   var seedAdmin = require('./models/seeds/admin.js');
   seedAdmin();
 }
