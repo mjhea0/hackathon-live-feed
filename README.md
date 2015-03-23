@@ -2,7 +2,9 @@
 
 A dashboard for displaying live-feed activity - Git commits, Tweets, and announcement - of participants in real-time. Built for the [RefactorU](http://www.refactoru.com/) Hackathon taking place on April 4th
 
-Staging: [https://pacific-beach-3008.herokuapp.com/](https://pacific-beach-3008.herokuapp.com/)
+**Staging**:
+- [https://pacific-beach-3008.herokuapp.com/](https://pacific-beach-3008.herokuapp.com/)
+- Dummy admin - email: ad@min.com/password: admin
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/RefactorU/hackathon-live-feed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
