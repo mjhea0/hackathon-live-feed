@@ -73,7 +73,7 @@ mongoose.connect(app.get('dbUrl'));
 
 // *** main routes *** //
 app.use('/', mainRoutes);
-app.use('/', userRoutes);
+app.use('/auth', userRoutes);
 app.use('/git', gitRoutes);
 app.use('/twitter', twitterRoutes);
 

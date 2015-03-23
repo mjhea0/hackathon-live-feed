@@ -6,11 +6,11 @@ var express = require('express'),
 
 // github auth
 
-router.get('/auth/github',
+router.get('/github',
   passportGithub.authenticate('github'),
   function(req, res){});
 
-router.get('/auth/github/callback',
+router.get('/github/callback',
   passportGithub.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     req.flash('success', 'Successfully logged in.');
@@ -20,15 +20,15 @@ router.get('/auth/github/callback',
 
 // local auth
 
-router.get('/auth/login', function(req, res) {
+router.get('/login', function(req, res) {
   res.render('login');
 });
 
-router.post('/auth/login', function(req, res, next) {
+router.post('/login', function(req, res, next) {
+  console.log(req.body);
   passportLocal.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
     if (!user) {
-      req.session.messages =  [info.message];
       return res.redirect('/auth/login');
     }
     req.logIn(user, function(err) {
@@ -41,7 +41,7 @@ router.post('/auth/login', function(req, res, next) {
 
 // user management
 
-router.get('/auth/logout', ensureAuthenticated, function(req, res){
+router.get('/logout', ensureAuthenticated, function(req, res){
   req.logout();
   req.flash('success', 'Successfully logged out.');
   res.redirect('/');

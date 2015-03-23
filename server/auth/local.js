@@ -17,7 +17,7 @@ passport.use(new LocalStrategy({passReqToCallback: true}, function(req, username
     user.comparePassword(password, function(err, isMatch) {
       if (err) return done(err);
       if(isMatch) {
-        return done(null, user, { message: req.flash('success', 'Welcome!.')});
+        return done(null, user, { message: req.flash('success', 'Welcome!')});
       } else {
         return done(null, false, { message: req.flash('success', 'Invalid username and/or password')});
       }

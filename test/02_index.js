@@ -1,10 +1,10 @@
-var should = require("should");
-var mongoose = require('mongoose');
-var request = require('supertest');
-var express = require('express');
-
 process.env.NODE_ENV = 'test';
-var app = require('../server/app');
+
+var should = require("should"),
+    mongoose = require('mongoose'),
+    request = require('supertest'),
+    express = require('express'),
+    app = require('../server/app');
 
 
 describe("routes/index.js", function() {
@@ -20,9 +20,11 @@ describe("routes/index.js", function() {
   it ('GET "/" should 200', function(done) {
     request(app)
       .get('/')
-      .expect(200)
       .end(function (err, res) {
+        should.not.exist(err);
+        res.statusCode.should.eql(200);
         res.text.should.containEql('Sign in with Github');
+        res.text.should.containEql('Admin Login');
       });
       done();
   });
