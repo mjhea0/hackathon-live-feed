@@ -8,7 +8,7 @@
 - [ ] Realtime Feed (commits, pull requests, merges, new repos)
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
-  - [X] ReactJS Components
+  - [ ] ReactJS Components
   - [ ] Re-structure as RESTful API
   - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
