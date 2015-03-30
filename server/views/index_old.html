@@ -1,0 +1,56 @@
+{% extends '_base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+{% if !user %}
+
+  <div class="jumbotron signUpContainer">
+    <h1>Hackathon Live Feed</h1>
+    <p class="lead">Commit Messages. Announcements. Twitter Feed.</p>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <a href="/auth/github" class="btn btn-social btn-lg btn-github">
+          <i class="fa fa-github"></i>Sign in with Github
+        </a>
+        <!-- <br><br> -->
+        <!-- <img src="/images/hackthon.png" style="max-height: 100px;"> -->
+      </div>
+    </div>
+    <a href="/auth/login/">Admin Login</a>
+  </div>
+
+{% else %}
+
+<div class="text-left">
+
+  <h1>Welcome, {{ user.name }}</h1>
+  <p>Are you an admin? <strong>{{ user.admin }}</strong></p>
+  <br>
+
+  <h2>Git Commits</h2>
+  <ul>
+    <li><a href="git">Raw JSON</a></li>
+    <li><a href="git/commits">Pretty HTML</a></li>
+  </ul>
+
+  <h2>Tweets</h2>
+  <ul>
+    <li><a href="twitter">Raw JSON</a></li>
+    <li><a href="twitter/tweets">Pretty HTML</a></li>
+  </ul>
+
+  <h2>Other Pages</h2>
+  <ul>
+    <li><a href="/auth/account">User Account</a></li>
+    <li><a href="/auth/admin">Admin Portal</a></li>
+    <li><a href="/auth/logout">Logout</a></li>
+  </ul>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

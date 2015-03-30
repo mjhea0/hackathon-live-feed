@@ -1,6 +1,8 @@
 /* custom styles */
 
 body {
+  background: #1b1b1b;
+  color: #fff;
   padding-top: 50px;
 }
 
@@ -15,15 +17,5 @@ body {
 }
 
 .signUpContainer {
-  background: linear-gradient(
-    rgba(0,0,0,.9),
-    rgba(0,0,0,.9)),
-    url(../images/marble.jpg);
-  overflow: visible;
-  color: #fff;
-  padding-left: 2px;
-  padding-right: 2px;
-  margin-left: 2px;
-  margin-right: 2px;
-  height: 350px;
+  background: transparent;
 }
