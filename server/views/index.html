@@ -37,7 +37,7 @@
           $.get('/git', function(data) {
             $('.commits').empty();
             for (var i = 0; i < data.response.length; i++) {
-              $('.commits').prepend(data.response[i].commit.message+'<br>');
+              $('.commits').append(data.response[i].commit.message+'<br>');
             }
           });
         };
