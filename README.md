@@ -1,6 +1,6 @@
 # hackathon-live-feed
 
-A dashboard for displaying live-feed activity - Git commits, Tweets, and announcement - of participants in real-time. Built for the [RefactorU](http://www.refactoru.com/) Hackathon taking place on April 4th
+A dashboard for displaying live-feed activity - Git commits, Tweets, and announcement - of participants in real-time. Built for the [RefactorU](http://www.refactoru.com/) Hackathon taking place on April 18th
 
 **Staging**:
 - [https://pacific-beach-3008.herokuapp.com/](https://pacific-beach-3008.herokuapp.com/)
