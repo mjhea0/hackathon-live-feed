@@ -22,7 +22,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 1. Start the Mongo server
 1. Run server - `nodemon`
 1. Test - `mocha`
-1. Coverage - `istanbul cover _mocha -- test/ -R spec`
+1. Coverage - `npm coverage`
 1. Coverage report - `open coverage/lcov-report/index.html`
 
 ## Purpose
@@ -101,5 +101,3 @@ We should probably allow for a week of final testing **(Saturday, March 28th)**
 * CSS Framework: Bootstrap
 * CSS Preprocessor: Sass
 * Templates: [Swig](http://paularmstrong.github.io/swig/)
-
-test

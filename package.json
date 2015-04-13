@@ -7,6 +7,7 @@
     "start": "grunt concurrent",
     "pretest": "npm install",
     "test": "grunt test",
+    "coverage": "istanbul cover _mocha -- -R spec",
     "send-coverage": "./node_modules/.bin/istanbul cover --report lcovonly ./node_modules/.bin/_mocha && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     },
   "dependencies": {
