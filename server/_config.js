@@ -21,4 +21,7 @@ config.mongoURI = {
   stage: process.env.MONGOLAB_URI
 };
 
+// hashtags for twitter stream
+config.hashtags = '#javascript, #nodejs, #angularjs, #backbone, #jquery, #mongodb, #reactjs, #html5, javascript';
+
 module.exports = config;

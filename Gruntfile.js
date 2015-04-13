@@ -32,7 +32,7 @@ module.exports = function (grunt) {
 
     nodemon: {
       dev: {
-        script: "./server/bin/www",
+        script: "./server/server.js",
         env: {
           PORT: "3000"
         }
