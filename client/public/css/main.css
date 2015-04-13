@@ -1,8 +1,6 @@
 /* custom styles */
 
 body {
-  background: #1b1b1b;
-  color: #fff;
   padding-top: 50px;
 }
 
@@ -18,8 +16,13 @@ body {
 
 .signUpContainer {
   background: transparent;
+  padding-bottom: 0;
 }
 
 .page-header {
   position: fixed;
+}
+
+.refactoru-logo {
+  max-width: 200px;
 }
