@@ -52,7 +52,7 @@
 
 - [X] Add build systems
 - [X] Add bower
-- [ ] Add unit, integration, and functinal tests
-- [ ] Add code coverage
+- [ ] Add unit and integration tests
+- [X] Add code coverage
 - [X] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
 - [ ] Finalize CI/CD workflow
