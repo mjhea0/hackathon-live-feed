@@ -12,12 +12,13 @@
   </head>
   <body>
 
-    {% include './partials/header.html' %}
+
 
     <!-- Page Content -->
     <div class="container">
      {% include "./partials/flash.html" %}
       <div class="starter-template">
+        {% include './partials/header.html' %}
         {% block content %}
         {% endblock %}
       </div>

@@ -5,39 +5,31 @@
 
 {% block content %}
 
-  <div class="jumbotron signUpContainer">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h1>Hackathon Live Feed</h1>
-        <p class="lead">Commit Messages. Announcements. Twitter Feed.</p>
-        <hr>
-      </div>
+<!-- divitis :( -->
+<div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <a href="/auth/github" class="btn btn-social btn-lg btn-github">
+        <i class="fa fa-github"></i>
+        <span>Sign in with Github</span>
+      </a>
+      <br>
+      <a href="/auth/login/">Admin Login</a>
     </div>
   </div>
-  <div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <a href="/auth/github" class="btn btn-social btn-lg btn-github">
-          <i class="fa fa-github"></i>
-          <span>Sign in with Github</span>
-        </a>
+  <br><br><br><br>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <p>
+        <span>Powered by</span>
         <br>
-        <a href="/auth/login/">Admin Login</a>
-      </div>
-    </div>
-    <br><br><br><br>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <p>
-          <span>Powered by</span>
-          <br>
-          <a href="http://refactoru.com">
-            <img class="refactoru-logo" src="/images/refactoru.png">
-          </a>
-        <p>
-      </div>
+        <a href="http://refactoru.com">
+          <img class="refactoru-logo" src="/images/refactoru.png">
+        </a>
+      <p>
     </div>
   </div>
+</div>
 
 
 {% endblock %}
