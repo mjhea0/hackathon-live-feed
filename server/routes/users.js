@@ -14,7 +14,7 @@ router.get('/github/callback',
   passportGithub.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     req.flash('success', 'Successfully logged in.');
-    res.redirect('/');
+    res.redirect('/dashboard');
 });
 
 
@@ -33,7 +33,7 @@ router.post('/login', function(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/');
+      return res.redirect('/auth/admin');
     });
   })(req, res, next);
 });
