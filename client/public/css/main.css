@@ -19,3 +19,7 @@ body {
 .signUpContainer {
   background: transparent;
 }
+
+.page-header {
+  position: fixed;
+}
