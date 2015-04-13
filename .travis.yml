@@ -26,5 +26,4 @@ before_script:
   - npm install -g bower
   - bower install
 
-script:
-  - "node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots && node_modules/.bin/mocha"
+script: npm run-script send-coverage

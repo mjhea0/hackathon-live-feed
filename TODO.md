@@ -20,10 +20,10 @@
   - [X] Connect with Twitter API
   - [ ] ReactJS Components
   - [ ] Re-structure as RESTful API
-  - [ ] Socket.IO (optional)
+  - [X] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
-  - [ ] Sound Effects on new activy (optinal)
+  - [ ] Sound Effects on new activy (optional)
 - [ ] Social icons to promote Hackathon
 
 ### Add User Profile
