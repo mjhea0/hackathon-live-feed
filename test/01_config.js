@@ -1,23 +1,20 @@
 process.env.NODE_ENV = 'test';
-
 var app = require('../server/app'),
-    should = require("should"),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    assert = require("assert"),
     config = require('../server/_config');
 
 
-
 describe('app environment', function(){
-
   it ('should be "test"', function(done) {
-    process.env.NODE_ENV.should.eql('test');
-    process.env.NODE_ENV.should.not.eql('development');
-    process.env.NODE_ENV.should.not.eql('stage');
+    assert.equal(process.env.NODE_ENV, 'test');
+    assert.notEqual(process.env.NODE_ENV, 'development');
+    assert.notEqual(process.env.NODE_ENV, 'stage');
     done();
   });
 
   it ('should be using the test database', function(done) {
-    config.mongoURI[app.settings.env].should.eql("mongodb://localhost/hackathon-test");
+    assert.equal(config.mongoURI[app.settings.env], "mongodb://localhost/hackathon-test");
     done();
   });
 
