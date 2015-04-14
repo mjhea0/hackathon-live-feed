@@ -85,15 +85,15 @@ client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
 var commitStream = require('github-commit-stream');
 var d = new Date();
 
-commitStream({
-  // token: req.user.github.token,
-  user: 'substack',
-  repo: 'node-browserify',
-  since: d.setHours(0,0,0,0)
-}).on('data', function(commit) {
-  console.log(commit.commit.message);
-  io.emit('newCommit', commit);
-});
+// commitStream({
+//   // token: req.user.github.token,
+//   user: 'substack',
+//   repo: 'node-browserify',
+//   since: d.setHours(0,0,0,0)
+// }).on('data', function(commit) {
+//   console.log(commit.commit.message);
+//   io.emit('newCommit', commit);
+// });
 
 io.on('connection', function(socket){
   console.log('a user connected');
