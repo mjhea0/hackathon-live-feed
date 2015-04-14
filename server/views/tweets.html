@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div ng-app='myApp' ng-controller="MainCtrl">
+<div ng-app='myApp' ng-controller="TweetCtrl">
   <div class="row">
 
     <div class="col-md-2 col-md-offset-1">
       <div>
-        <h1>Tweets</h1>
+        <h1 class="main-header">Tweets</h1>
       </div>
     </div>
 
@@ -17,8 +17,7 @@
 
       <h3>{% raw %}{{ status }}{% endraw %}</h3>
 
-
-      <div class="tweet-zone" ng-repeat="tweet in tweets">
+      <div ng-repeat="tweet in tweets">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
           {% raw %}

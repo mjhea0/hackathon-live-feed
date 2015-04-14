@@ -8,23 +8,24 @@
 - [ ] Realtime Feed (commits, pull requests, merges, new repos)
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
-  - [ ] ReactJS Components
+  - [ ] ReactJS Components (optional)
   - [ ] Re-structure as RESTful API
   - [ ] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
-  - [ ] Sound Effects on new activy (optinal)
+  - [ ] Sound Effects on new activy (optional)
+  - [ ] Social icons to promote Hackathon (optional)
 
 ### Twitter (guests have access)
 - [X] Realtime Feed
   - [X] Connect with Twitter API
-  - [ ] ReactJS Components
+  - [ ] ReactJS Components (optional)
   - [ ] Re-structure as RESTful API
   - [X] Socket.IO (optional)
   - [ ] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optional)
-- [ ] Social icons to promote Hackathon
+  - [ ] Social icons to promote Hackathon (optional)
 
 ### Add User Profile
 - [ ] Update info - hackathon, location

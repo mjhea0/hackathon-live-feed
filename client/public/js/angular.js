@@ -1,6 +1,6 @@
-var twitterStream = angular.module('myApp', ['ui.bootstrap']);
+var stream = angular.module('myApp', ['ui.bootstrap']);
 
-twitterStream.factory('socket', function ($rootScope) {
+stream.factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {
     on: function (eventName, callback) {
@@ -24,15 +24,25 @@ twitterStream.factory('socket', function ($rootScope) {
   };
 });
 
-twitterStream.controller('MainCtrl', [
-  '$scope', 'socket',
-  function($scope, socket){
+stream.controller('TweetCtrl', ['$scope', 'socket', function($scope, socket){
     $scope.status = "No tweets yet...";
     $scope.tweets = [];
     var i = 0;
     socket.on('newTweet', function (tweet) {
       $scope.status = "";
       $scope.tweets.push(tweet);
+    });
+  }
+]);
+
+stream.controller('CommitCtrl', ['$scope', 'socket', function($scope, socket){
+    $scope.status = "No commits yet...";
+    $scope.commits = [];
+    var i = 0;
+    socket.on('newCommit', function (commit) {
+      console.log("hi!");
+      $scope.status = "";
+      $scope.commits.push(commit);
     });
   }
 ]);

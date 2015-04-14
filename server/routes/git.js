@@ -2,6 +2,10 @@ var express = require('express'),
     router = express.Router(),
     request = require("request");
 
+// angular, streams
+router.get('/commits', ensureAuthenticated, function(req, res, next) {
+  res.render('commits');
+});
 
 // *** old - rest endpoint, react *** //
 
