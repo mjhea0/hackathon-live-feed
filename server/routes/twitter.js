@@ -1,63 +1,69 @@
 var express = require('express'),
     router = express.Router(),
-    Twitter = require('twitter');
+    Twitter = require('twitter'),
+    config = require('../_config');
 
-var config = require('../_config');
-
-
-var client = new Twitter({
-  consumer_key: config.twitterConsumerKey,
-  consumer_secret: config.twitterConsumerSecret,
-  access_token_key: config.twitterAccessTokenKey,
-  access_token_secret: config.twitterAccessTokenSecret
+// angular, streams
+router.get('/tweets', ensureAuthenticated, function(req, res, next) {
+  res.render('tweets');
 });
 
-router.get('/', ensureAuthenticated, function(req, res) {
 
-  var params = {screen_name: 'refactoru'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response){
-    if (!error) {
-      res.send(tweets);
-    }
-  });
+// *** old - rest endpoint, react *** //
 
-});
+// var client = new Twitter({
+//   consumer_key: config.twitterConsumerKey,
+//   consumer_secret: config.twitterConsumerSecret,
+//   access_token_key: config.twitterAccessTokenKey,
+//   access_token_secret: config.twitterAccessTokenSecret
+// });
 
-router.get('/tweets', ensureAuthenticated, function(req, res) {
+// router.get('/', ensureAuthenticated, function(req, res) {
 
-  var params = {screen_name: 'refactoru'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response){
-    if (!error) {
-      var responseArr = [];
-      var responseObj = {};
-      for (var i = 0; i < tweets.length; i++) {
-        responseObj = {};
-        responseObj.text = tweets[i].text;
-        responseArr.push(responseObj);
-      }
-      res.render('tweets', {response:responseArr});
-    }
-  });
+//   var params = {screen_name: 'refactoru'};
+//   client.get('statuses/user_timeline', params, function(error, tweets, response){
+//     if (!error) {
+//       res.send(tweets);
+//     }
+//   });
 
-});
+// });
 
-router.get('/fetchtweets', ensureAuthenticated, function(req, res) {
+// router.get('/tweets', ensureAuthenticated, function(req, res) {
 
-  var params = {screen_name: 'refactoru'};
-  client.get('statuses/user_timeline', params, function(error, tweets, response){
-    if (!error) {
-      var responseArr = [];
-      var responseObj = {};
-      for (var i = 0; i < tweets.length; i++) {
-        responseObj = {};
-        responseObj.text = tweets[i].text;
-        responseArr.push(responseObj);
-      }
-      res.send({response:responseArr, data: req.body});
-    }
-  });
+//   var params = {screen_name: 'refactoru'};
+//   client.get('statuses/user_timeline', params, function(error, tweets, response){
+//     if (!error) {
+//       var responseArr = [];
+//       var responseObj = {};
+//       for (var i = 0; i < tweets.length; i++) {
+//         responseObj = {};
+//         responseObj.text = tweets[i].text;
+//         responseArr.push(responseObj);
+//       }
+//       res.render('tweets', {response:responseArr});
+//     }
+//   });
 
-});
+// });
+
+// router.get('/fetchtweets', ensureAuthenticated, function(req, res) {
+
+//   var params = {screen_name: 'refactoru'};
+//   client.get('statuses/user_timeline', params, function(error, tweets, response){
+//     if (!error) {
+//       var responseArr = [];
+//       var responseObj = {};
+//       for (var i = 0; i < tweets.length; i++) {
+//         responseObj = {};
+//         responseObj.text = tweets[i].text;
+//         responseArr.push(responseObj);
+//       }
+//       res.send({response:responseArr, data: req.body});
+//     }
+//   });
+
+// });
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }

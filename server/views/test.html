@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>Node Twitter Experiment</title>
+<meta charset="utf-8">
+<body>
+<h1>User Stream</h1>
+<ul id="stream">
+
+<script src="//cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io();
+  socket.on('tweet', function(tweet){
+      $('#stream').prepend($('<li>').text(tweet.user.name + ': ' + tweet.text));
+  })
+</script>

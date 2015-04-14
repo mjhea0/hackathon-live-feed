@@ -1,14 +1,13 @@
 process.env.NODE_ENV = 'test';
-
-var should = require("should"),
-    mongoose = require('mongoose'),
+var app = require('../server/app'),
     request = require('supertest'),
-    express = require('express'),
+    should = require("should"),
+    mongoose = require('mongoose'),
     User = require("../server/models/users.js"),
-    app = require('../server/app');
+    assert = require("assert");
 
 
-describe("routes/users.js - logged in", function() {
+describe("users.js Routes", function() {
 
   before(function(done) {
 
@@ -48,8 +47,8 @@ describe("routes/users.js - logged in", function() {
   it('finds a regular user by username', function(done) {
     User.findOne({ 'github.oauthID': 12345, 'github.username': 'testy' }, function(err, user) {
       user.should.be.an.instanceOf(User);
-      user.github.username.should.eql('testy');
-      user.github.oauthID.should.eql(12345);
+      assert.equal(user.github.username, 'testy');
+      assert.equal(user.github.oauthID, 12345);
       done();
     });
   });
@@ -57,91 +56,70 @@ describe("routes/users.js - logged in", function() {
   it('finds a admin user by username', function(done) {
     User.findOne({ 'local.username': 'test@test.com', 'local.password': 'password' }, function(err, user) {
       user.should.be.an.instanceOf(User);
-      user.local.username.should.eql('test@test.com');
-      user.local.password.should.eql('password');
+      assert.equal(user.local.username, 'test@test.com');
+      assert.equal(user.local.password, 'password');
       done();
     });
   });
 
   it('finds all users', function(done) {
     User.find({}, function(err, user) {
-      user.length.should.eql(2);
+      assert.equal(user.length, 2);
       done();
     });
   });
 
-  // it ('login', function(done) {
-  //   request(app)
-  //     .post('/auth/login')
-  //     .field('username', 'test@test.com')
-  //     .field('password', 'password')
-  //     .expect('Content-Type', /plain/)
-  //     .end(function (err, res) {
-  //       res.statusCode.should.eql(302);
-  //       res.header.location.should.eql('/');
-  //     });
-  //     done();
-  // });
-
-
-  // it ('GET "/admin" should display admin page if an admin is logged in', function(done) {
-  //   request(app)
-  //     .get('/auth/admin')
-  //     .end(function (err, res) {
-  //       should.not.exist(err);
-  //       res.statusCode.should.eql(200);
-  //       res.header.location.should.eql('/auth/admin');
-  //     });
-  //     done();
-  // });
-
-
-});
-
-
-describe("routes/users.js - not logged in", function() {
-
-  before(function(done) {
-    done();
+  describe('GET /auth/login', function(){
+    it ('should return a view', function(done) {
+      request(app)
+        .get('/auth/login')
+        .end(function (err, res) {
+          assert.equal(res.statusCode, 200);
+          assert.equal(res.status, 200);
+          res.text.should.containEql('<h1>Login</h1>\n');
+          done();
+        });
+    });
   });
 
-  after(function(done) {
-    done();
+  describe('GET /auth/logout', function(){
+    it ('should redirect if user is not logged in', function(done) {
+      request(app)
+        .get('/auth/logout')
+        .end(function (err, res) {
+          assert.equal(res.statusCode, 302);
+          assert.equal(res.status, 302);
+          assert.equal(res.header.location, '/');
+          done();
+        });
+    });
   });
 
-  it ('GET "/auth/admin" should redirect if user is not logged in', function(done) {
-    request(app)
-      .get('/auth/admin')
-      .end(function (err, res) {
-        should.not.exist(err);
-        res.statusCode.should.eql(302);
-        res.header.location.should.eql('/');
-      });
-      done();
+  describe('GET /auth/account', function(){
+    it ('should redirect if user is not logged in', function(done) {
+      request(app)
+        .get('/auth/account')
+        .end(function (err, res) {
+          assert.equal(res.statusCode, 302);
+          assert.equal(res.status, 302);
+          assert.equal(res.header.location, '/');
+          done();
+        });
+    });
   });
 
+  describe('GET /auth/admin', function(){
+    it ('should redirect if user is not logged in', function(done) {
+      request(app)
+        .get('/auth/admin')
+        .end(function (err, res) {
+          assert.equal(res.statusCode, 302);
+          assert.equal(res.status, 302);
+          assert.equal(res.header.location, '/');
+          done();
+        });
+    });
 
-  it ('GET "/auth/logout" should redirect if user is not logged in', function(done) {
-    request(app)
-      .get('/auth/logout')
-      .end(function (err, res) {
-        should.not.exist(err);
-        res.statusCode.should.eql(302);
-        res.header.location.should.eql('/');
-      });
-      done();
   });
-
-  it ('GET "/auth/account" should redirect if user is not logged in', function(done) {
-    request(app)
-      .get('/auth/account')
-      .end(function (err, res) {
-        should.not.exist(err);
-        res.statusCode.should.eql(302);
-        res.header.location.should.eql('/');
-      });
-      done();
-  });
-
 
 });

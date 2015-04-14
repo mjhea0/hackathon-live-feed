@@ -21,7 +21,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('default', function () {
-  nodemon({ script: './server/bin/www', ext: 'html js', ignore: ['ignored.js'] })
+  nodemon({ script: './server/server.js', ext: 'html js', ignore: ['ignored.js', 'node_modules'] })
     .on('change', ['lint'])
     .on('restart', function () {
       console.log('restarted!');

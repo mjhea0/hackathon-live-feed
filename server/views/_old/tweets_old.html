@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<div class="text-left">
+
+  <h1>Tweets</h1>
+
+  <div id="tweets-component"></div>
+  <script src="{{ baseurl }}/js/tweets.jsx" type="text/jsx"></script>
+
+  <br><br>
+
+ <!--  {% for tweet in response %}
+
+    <div class="row">
+      {{ tweet.text }}<br>
+    </div>
+    <br>
+
+  {% endfor %} -->
+
+</div>
+
+{% endblock %}
