@@ -82,14 +82,33 @@ client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
   });
 });
 
-var commitStream = require('github-commit-stream');
-var d = new Date();
+
+// refactor!
+var request = require("request");
+var owner = 'RefactorU';
+var repo = 'hackathon-live-feed';
+var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
+
+var options = {
+  method: 'get',
+  json: true,
+  url: url,
+  headers : {
+    'User-Agent': 'test'
+  }
+};
+
+request(options, url, function(err, resp, body) {
+  if (err) {
+    res.status(500).send('Something broke!');
+  }
+  io.emit('newCommit', body);
+});
 
 // commitStream({
-//   // token: req.user.github.token,
-//   user: 'substack',
-//   repo: 'node-browserify',
-//   since: d.setHours(0,0,0,0)
+//   user: 'RefactorU',
+//   repo: 'hackathon-live-feed',
+//   since: new Date("2010/08/17 12:09:36")
 // }).on('data', function(commit) {
 //   console.log(commit.commit.message);
 //   io.emit('newCommit', commit);
