@@ -17,10 +17,10 @@ describe("routes/git.js", function() {
     done();
   });
 
-  describe('GET /git', function(){
+  describe('GET /git/commits', function(){
     it ('should redirect if user is not logged in', function(done) {
       request(app)
-        .get('/git')
+        .get('/git/commits')
         .end(function (err, res) {
           assert.equal(res.statusCode, 302);
           assert.equal(res.status, 302);
