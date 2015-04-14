@@ -32,8 +32,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 ## Due Date
 
-The Hackathon date is set for **April 4th.**
-We should probably allow for a week of final testing **(Saturday, March 28th)**
+The Hackathon date is set for **April 18th.**
 
 ## Development Workflow
 
