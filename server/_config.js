@@ -1,8 +1,8 @@
 var config = {};
 
 // github keys
-config.githubClientID = process.env.githubClientID || '223353dd2bf977060210';
-config.githubClientSecret = process.env.githubClientSecret || 'f71627f64fda0e4cf8ef632d67c637cec8d9a875';
+config.githubClientID = process.env.githubClientID || 'GET_YOUR_OWN';
+config.githubClientSecret = process.env.githubClientSecret || 'GET_YOUR_OWN';
 config.githubCallbackURL = process.env.githubCallbackURL || "http://localhost:3000/auth/github/callback";
 
 // twitter keys
