@@ -111,7 +111,7 @@ function loop() {
   });
 }
 
-setInterval(loop() , 180000);
+setInterval(loop, 180000);
 
 io.on('connection', function(socket){
   console.log('a user connected');
