@@ -2,7 +2,8 @@ var app = require('./app'),
     debug = require('debug')('hackathon-live-feed:server'),
     http = require('http'),
     Twitter = require('twitter'),
-    config = require('./_config');
+    config = require('./_config'),
+    request = require("request");
 
 
 // get port from env and store
@@ -75,8 +76,6 @@ var client = new Twitter({
 
 client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
   stream.on('data', function(tweet) {
-    console.log("test")
-    console.log(tweet);
     io.emit('newTweet', tweet);
   });
   stream.on('error', function(error) {
@@ -86,35 +85,33 @@ client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
 
 
 // refactor!
-var request = require("request");
-var owner = 'RefactorU';
-var repo = 'hackathon-live-feed';
-var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
 
-var options = {
-  method: 'get',
-  json: true,
-  url: url,
-  headers : {
-    'User-Agent': 'test'
-  }
-};
+function getCommits(owner, repo) {
+  var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
+  var options = {
+    method: 'get',
+    json: true,
+    url: url,
+    headers : {'User-Agent': 'test'}
+  };
+  request(options, url, function(err, resp, body) {
+    if (err) {
+      res.status(500).send('Something broke!');
+    }
+    console.log(body);
+    io.emit('newCommit', body);
+  });
+}
 
-request(options, url, function(err, resp, body) {
-  if (err) {
-    res.status(500).send('Something broke!');
-  }
-  io.emit('newCommit', body);
-});
+var gitData = config.github;
 
-// commitStream({
-//   user: 'RefactorU',
-//   repo: 'hackathon-live-feed',
-//   since: new Date("2010/08/17 12:09:36")
-// }).on('data', function(commit) {
-//   console.log(commit.commit.message);
-//   io.emit('newCommit', commit);
-// });
+function loop() {
+  gitData.forEach(function(data) {
+    getCommits(data.owner, data.repo);
+  });
+}
+
+setInterval(loop() , 180000);
 
 io.on('connection', function(socket){
   console.log('a user connected');
