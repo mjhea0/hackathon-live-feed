@@ -39,6 +39,7 @@ stream.controller('CommitCtrl', ['$scope', 'socket', function($scope, socket){
     $scope.status = "No commits yet...";
     $scope.commits = [];
     var i = 0;
+    // new commit arrives from server
     socket.on('newCommit', function (commit) {
       console.log("hi!");
       $scope.status = "";

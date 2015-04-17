@@ -87,10 +87,11 @@ client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
 
 // refactor!
 var request = require("request");
-var owner = 'RefactorU';
+var owner = 'gemfarmer';
 var repo = 'hackathon-live-feed';
 var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
-
+console.log('------------------');
+console.log(url);
 var options = {
   method: 'get',
   json: true,
