@@ -105,6 +105,8 @@ request(options, url, function(err, resp, body) {
   if (err) {
     res.status(500).send('Something broke!');
   }
+  console.log('==================')
+  console.log(body)
   io.emit('newCommit', body);
 });
 
