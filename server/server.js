@@ -123,9 +123,13 @@ var loop = function loop() {
   });
 }
 
+<<<<<<< HEAD
 setInterval(loop, 25000);
 
 
+=======
+setInterval(loop, 180000);
+>>>>>>> a38d8699abb3d2dabbada1123d143f435734b6c3
 
 io.on('connection', function(socket){
   console.log('a user connected');
