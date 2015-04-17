@@ -100,21 +100,24 @@ var options = {
     'User-Agent': 'test'
   }
 };
+setTimeout(function () {
+  request(options, url, function(err, resp, body) {
+    if (err) {
+      res.status(500).send('Something broke!');
+    }
+    console.log('==================')
+    console.log(body)
+    io.emit('newCommit', body);
+  });
+},50);
 
-request(options, url, function(err, resp, body) {
-  if (err) {
-    res.status(500).send('Something broke!');
-  }
-  console.log('==================')
-  console.log(body)
-  io.emit('newCommit', body);
-});
 
 // commitStream({
-//   user: 'RefactorU',
+//   user: 'gemfarmer',
 //   repo: 'hackathon-live-feed',
 //   since: new Date("2010/08/17 12:09:36")
 // }).on('data', function(commit) {
+//   console.log('```````````````````')
 //   console.log(commit.commit.message);
 //   io.emit('newCommit', commit);
 // });
