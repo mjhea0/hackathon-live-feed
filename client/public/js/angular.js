@@ -44,7 +44,8 @@ stream.controller('CommitCtrl', ['$scope', 'socket', function($scope, socket){
       console.log(commit)
       console.log("hi!");
       $scope.status = "";
-      $scope.commits.push(commit);
+      $scope.commits = commit;
+      console.log('commits',$scope.commits)
     });
   }
 ]);

@@ -2,7 +2,9 @@ var app = require('./app'),
     debug = require('debug')('hackathon-live-feed:server'),
     http = require('http'),
     Twitter = require('twitter'),
-    config = require('./_config');
+    config = require('./_config'),
+    request = require("request"),
+    _ = require('lodash');
 
 
 // get port from env and store
@@ -75,8 +77,6 @@ var client = new Twitter({
 
 client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
   stream.on('data', function(tweet) {
-    console.log("test")
-    console.log(tweet);
     io.emit('newTweet', tweet);
   });
   stream.on('error', function(error) {
@@ -85,42 +85,47 @@ client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
 });
 
 
+var commitLibrary = [];
+
 // refactor!
-var request = require("request");
-var owner = 'gemfarmer';
-var repo = 'hackathon-live-feed';
-var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
-console.log('------------------');
-console.log(url);
-var options = {
-  method: 'get',
-  json: true,
-  url: url,
-  headers : {
-    'User-Agent': 'test'
-  }
-};
-setTimeout(function () {
+function getCommits(owner, repo) {
+  var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
+
+  var options = {
+    method: 'get',
+    json: true,
+    url: url,
+    headers : {'User-Agent': 'test'}
+  };
   request(options, url, function(err, resp, body) {
     if (err) {
       res.status(500).send('Something broke!');
     }
-    console.log('==================')
-    console.log(body)
-    io.emit('newCommit', body);
+    if (commitLibrary.length){
+      commitLibary = _.flatten(_.union(commitLibrary,body));
+      io.emit('newCommit', commitLibrary);
+      console.log('commitLibrary',commitLibrary);
+    } else {
+      commitLibrary = body;
+
+      io.emit('newCommit', commitLibrary);
+      console.log('new commitLibrary',commitLibrary);
+    }
+    
   });
-},50);
+}
+
+var gitData = config.github;
+
+var loop = function loop() {
+  gitData.forEach(function(data) {
+    getCommits(data.owner, data.repo);
+  });
+}
+
+setInterval(loop, 25000);
 
 
-// commitStream({
-//   user: 'gemfarmer',
-//   repo: 'hackathon-live-feed',
-//   since: new Date("2010/08/17 12:09:36")
-// }).on('data', function(commit) {
-//   console.log('```````````````````')
-//   console.log(commit.commit.message);
-//   io.emit('newCommit', commit);
-// });
 
 io.on('connection', function(socket){
   console.log('a user connected');

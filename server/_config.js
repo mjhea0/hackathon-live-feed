@@ -1,9 +1,9 @@
 var config = {};
 
 // github keys
-config.githubClientID = process.env.githubClientID || 'ab48fea54b7a7238bc62';
-config.githubClientSecret = process.env.githubClientSecret || 'bf1215beae9fd196bc18a656841120623746e640';
-config.githubCallbackURL = process.env.githubCallbackURL || "http://127.0.0.1:3000/auth/github/callback";
+config.githubClientID = process.env.githubClientID || '223353dd2bf977060210';
+config.githubClientSecret = process.env.githubClientSecret || 'f71627f64fda0e4cf8ef632d67c637cec8d9a875';
+config.githubCallbackURL = process.env.githubCallbackURL || "http://localhost:3000/auth/github/callback";
 
 // twitter keys
 config.twitterConsumerKey = process.env.twitterConsumerKey || 'GET_YOUR_OWN';
@@ -23,5 +23,11 @@ config.mongoURI = {
 
 // hashtags for twitter stream
 config.hashtags = '#javascript, #nodejs, #angularjs, #backbone, #jquery, #mongodb, #reactjs, #html5, javascript';
+
+// owner/repos for commit stream
+config.github = [
+  {owner: 'gemfarmer', repo: 'hackathon-live-feed'},
+  {owner: 'mjhea0', repo: 'node-stripe-charge'}
+];
 
 module.exports = config;
