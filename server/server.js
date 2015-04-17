@@ -75,6 +75,8 @@ var client = new Twitter({
 
 client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
   stream.on('data', function(tweet) {
+    console.log("test")
+    console.log(tweet);
     io.emit('newTweet', tweet);
   });
   stream.on('error', function(error) {
