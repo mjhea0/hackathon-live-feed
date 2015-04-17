@@ -24,4 +24,10 @@ config.mongoURI = {
 // hashtags for twitter stream
 config.hashtags = '#javascript, #nodejs, #angularjs, #backbone, #jquery, #mongodb, #reactjs, #html5, javascript';
 
+// owner/repos for commit stream
+config.github = [
+  {owner: 'RefactorU', repo: 'hackathon-live-feed'},
+  {owner: 'mjhea0', repo: 'node-stripe-charge'}
+];
+
 module.exports = config;
