@@ -25,14 +25,17 @@
               <h3 panelheader class="panel-title">Add User</h3>
             </div>
             <div class="panel-body">
-              <div class="row">
+              <div class="row" ng-repeat="commit in commits">
                 <div class="col-md-2">
-                  Add Image
+                  <img src="commit.actor.avatar_url" width="50" height="50"/>
+                  <p>{{commit.actor.login}}</p>
+                  <p>{{commit.created_at}}</p>
                 </div>
                 <div class="col-md-10">
                   <p>
+                    
                     {{commit[0]}}
-                    </a>
+                    
                   </p>
                 </div>
               </div>
