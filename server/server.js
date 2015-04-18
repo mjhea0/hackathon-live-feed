@@ -122,7 +122,9 @@ var loop = function loop() {
     getCommits(data.owner, data.repo);
   });
 }
-
+gitData.forEach(function(data) {
+  getCommits(data.owner, data.repo);
+});
 setInterval(loop, 25000);
 
 
