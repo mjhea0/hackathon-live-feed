@@ -104,14 +104,11 @@ function getCommits(owner, repo) {
     if (commitLibrary.length){
       commitLibary = _.flatten(_.union(commitLibrary,body));
       io.emit('newCommit', commitLibrary);
-      console.log('commitLibrary',commitLibrary);
     } else {
       commitLibrary = body;
-
       io.emit('newCommit', commitLibrary);
-      console.log('new commitLibrary',commitLibrary);
     }
-    
+
   });
 }
 
@@ -121,7 +118,7 @@ var loop = function loop() {
   gitData.forEach(function(data) {
     getCommits(data.owner, data.repo);
   });
-}
+};
 gitData.forEach(function(data) {
   getCommits(data.owner, data.repo);
 });
