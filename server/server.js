@@ -3,7 +3,8 @@ var app = require('./app'),
     http = require('http'),
     Twitter = require('twitter'),
     config = require('./_config'),
-    request = require("request");
+    request = require("request"),
+    _ = require('lodash');
 
 
 // get port from env and store
@@ -84,10 +85,12 @@ client.stream('statuses/filter', {track: config.hashtags}, function(stream) {
 });
 
 
-// refactor!
+var commitLibrary = [];
 
+// refactor!
 function getCommits(owner, repo) {
   var url = 'https://api.github.com/repos/'+owner+'/'+repo+'/events';
+
   var options = {
     method: 'get',
     json: true,
@@ -98,20 +101,33 @@ function getCommits(owner, repo) {
     if (err) {
       res.status(500).send('Something broke!');
     }
-    console.log(body);
-    io.emit('newCommit', body);
+    if (commitLibrary.length){
+      commitLibary = _.flatten(_.union(commitLibrary,body));
+      io.emit('newCommit', commitLibrary);
+      console.log('commitLibrary',commitLibrary);
+    } else {
+      commitLibrary = body;
+
+      io.emit('newCommit', commitLibrary);
+      console.log('new commitLibrary',commitLibrary);
+    }
+    
   });
 }
 
 var gitData = config.github;
 
-function loop() {
+var loop = function loop() {
   gitData.forEach(function(data) {
     getCommits(data.owner, data.repo);
   });
 }
+gitData.forEach(function(data) {
+  getCommits(data.owner, data.repo);
+});
+setInterval(loop, 25000);
 
-setInterval(loop, 180000);
+
 
 io.on('connection', function(socket){
   console.log('a user connected');

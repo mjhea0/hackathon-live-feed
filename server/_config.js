@@ -3,7 +3,7 @@ var config = {};
 // github keys
 config.githubClientID = process.env.githubClientID || 'GET_YOUR_OWN';
 config.githubClientSecret = process.env.githubClientSecret || 'GET_YOUR_OWN';
-config.githubCallbackURL = process.env.githubCallbackURL || "http://127.0.0.1:3000/auth/github/callback";
+config.githubCallbackURL = process.env.githubCallbackURL || "http://localhost:3000/auth/github/callback";
 
 // twitter keys
 config.twitterConsumerKey = process.env.twitterConsumerKey || 'GET_YOUR_OWN';
@@ -26,7 +26,7 @@ config.hashtags = '#javascript, #nodejs, #angularjs, #backbone, #jquery, #mongod
 
 // owner/repos for commit stream
 config.github = [
-  {owner: 'RefactorU', repo: 'hackathon-live-feed'},
+  {owner: 'gemfarmer', repo: 'hackathon-live-feed'},
   {owner: 'mjhea0', repo: 'node-stripe-charge'}
 ];
 

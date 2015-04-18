@@ -1,4 +1,4 @@
-var stream = angular.module('myApp', ['ui.bootstrap']);
+var stream = angular.module('myApp', ['ui.bootstrap','angularMoment', 'ipCookie']);
 
 stream.factory('socket', function ($rootScope) {
   var socket = io.connect();
@@ -35,14 +35,24 @@ stream.controller('TweetCtrl', ['$scope', 'socket', function($scope, socket){
   }
 ]);
 
-stream.controller('CommitCtrl', ['$scope', 'socket', function($scope, socket){
+stream.controller('CommitCtrl', ['$scope', 'socket', 'ipCookie', function($scope, socket, ipCookie){
     $scope.status = "No commits yet...";
-    $scope.commits = [];
+    $scope.commits = ipCookie('commits') || [];
     var i = 0;
+    // new commit arrives from server
     socket.on('newCommit', function (commit) {
+      console.log(commit)
       console.log("hi!");
       $scope.status = "";
-      $scope.commits.push(commit);
+      $scope.commits = commit;
+      ipCookie('commits',commit)
+      console.log('commits',$scope.commits)
     });
   }
 ]);
+
+stream.filter('fromNow', function () {
+    return function (input) {
+      return moment(input).fromNow();
+    };
+  });

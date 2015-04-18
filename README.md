@@ -32,7 +32,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 
 ## Due Date
 
-The Hackathon date is set for **April 18th.**
+The Hackathon date is set for **April 18th.** a.k.a tomorrow!
 
 ## Development Workflow
 
