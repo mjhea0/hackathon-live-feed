@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 var userSchema = mongoose.Schema({
   admin: { type: Boolean, default: false },
   local: {
-    username: { type: String, unique: true },
+    username: String,
     password: String,
   },
   github: {
