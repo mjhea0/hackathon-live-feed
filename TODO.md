@@ -9,10 +9,8 @@
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity)
   - [ ] ReactJS Components (optional)
-  - [ ] Re-structure as RESTful API
-  - [ ] Socket.IO (optional)
-  - [ ] Infinite Scroll (optional)
-  - [ ] Throttling - to only show 100 activies (optional)
+  - [X] Socket.IO (optional)
+  - [X] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optional)
   - [ ] Social icons to promote Hackathon (optional)
 
@@ -20,19 +18,18 @@
 - [X] Realtime Feed
   - [X] Connect with Twitter API
   - [ ] ReactJS Components (optional)
-  - [ ] Re-structure as RESTful API
   - [X] Socket.IO (optional)
-  - [ ] Infinite Scroll (optional)
+  - [X] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optional)
   - [ ] Social icons to promote Hackathon (optional)
 
-### Add User Profile
-- [ ] Update info - hackathon, location
 
 ### Admin Portal
 - [ ] Update Title and Logo (and other data/metadata) for organizing hackathon
 - [ ] Open and close Realtime feeds (optional)
+- [ ] Update repos to watch for
+- [ ] Update Twitter accounts to watch for
 
 ### Data Visualization (via [NVD3](http://nvd3.org/))
 - [ ] Number of activies per repo
@@ -53,7 +50,7 @@
 
 - [X] Add build systems
 - [X] Add bower
-- [ ] Add unit and integration tests
+- [X] Add unit and integration tests
 - [X] Add code coverage
 - [X] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
-- [ ] Finalize CI/CD workflow
+- [X] Finalize CI/CD workflow

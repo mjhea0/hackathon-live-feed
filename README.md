@@ -1,6 +1,6 @@
 # hackathon-live-feed
 
-A dashboard for displaying live-feed activity - Git commits, Tweets, and announcement - of participants in real-time. Built for the [RefactorU](http://www.refactoru.com/) Hackathon taking place on April 18th
+A dashboard for displaying live-feed activity - Git commits, Tweets, and announcement - of participants in real-time. Built for the [RefactorU](http://www.refactoru.com/) Hackathon, which took place on April 18th, 2015.
 
 **Staging**:
 - [https://pacific-beach-3008.herokuapp.com/](https://pacific-beach-3008.herokuapp.com/)
@@ -17,7 +17,7 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 ## Quick Start
 
 1. Clone
-1. Install dependencies (`npm install` will run automatically when you run `npm start`)
+1. Install dependencies - `npm install`
 1. Add environment variables (see *server/_config.js*)
 1. Start the Mongo server
 1. Run server - `nodemon`
@@ -25,30 +25,16 @@ Here is the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/M
 1. Coverage - `npm coverage`
 1. Coverage report - `open coverage/lcov-report/index.html`
 
-## Purpose
-
-* Create a Github live-feed application that can be displayed at the RefactorU Hackathon on April 4th, showing all commits/pull requests/merges on different projects.
-* Make it reuseable for future hackathon hosters (like schools, companies, etc.)
-
-## Due Date
-
-The Hackathon date is set for **April 18th.** a.k.a tomorrow!
-
 ## Development Workflow
 
 1. Create feature branch
-1. Develop/test locally (hack!)
-1. Create PR
-1. PR triggers Travis-CI
-1. After tests pass, merge the PR (see below for details)
+1. Develop/test locally (hack! hack! hack!)
+1. Create PR, which triggers Travis-CI
+1. After tests pass, merge the PR
 1. Tests run again on Travis-CI
 1. Once tests pass, code is deployed automatically to staging server on Heroku
 
-## Merge Protocol
-
-* Don't merge your own pull requests ("PR")
-* Each pull request should have **at least 2 people** check it out before merging* please comment to let us know you looked it over
-* If you have a suggestion or want clarification on a specific part of someone's pull request, please comment on that line in their PR. You can comment on specific lines by going to the Files Changed tab, hovering on a line, then clicking the blue + button
+> Make sure to add tests with each PR. Your PR must **not** decrease the test coverage percentage.
 
 ## Features & Functionalities
 
