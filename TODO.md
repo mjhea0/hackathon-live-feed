@@ -45,7 +45,7 @@
 - [ ] Social icons to promote Hackathon
 - [ ] Add data viz
 
-## Ops
+### Ops
 
 - [X] Add build systems
 - [X] Add bower
@@ -53,3 +53,7 @@
 - [X] Add code coverage
 - [X] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
 - [X] Finalize CI/CD workflow
+
+### Design
+
+- [ ] Makeover - UI/UX
