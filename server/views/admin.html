@@ -15,8 +15,30 @@
 
 <div class="text-left">
 
-  <h1>Welcome, {{ user.name }}</h1>
+  <h1>Welcome, {{ user.local.username }}</h1>
   <p>You must be an admin? <strong>{{ user.admin }}</strong></p>
+  <br>
+  <form>
+    <div class="form-group">
+      <label>Hackathon Logo</label>
+      <input type="text" class="form-control" value="http://">
+    </div>
+    <div class="form-group">
+      <label>Hackathon Name</label>
+      <input type="text" class="form-control" placeholder="Enter the name of the hackathon">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Turn off Github Feed
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Turn off Twitter Feed
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
 
 </div>
 

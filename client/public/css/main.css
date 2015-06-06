@@ -4,6 +4,10 @@ body {
   padding-top: 50px;
 }
 
+.container {
+  max-width: 1000px;
+}
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
