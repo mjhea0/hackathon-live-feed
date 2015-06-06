@@ -9,8 +9,9 @@ services: mongodb
 before_script:
   - npm install -g bower
   - npm install -g grunt-cli
-  - npm instal istanbul -g
+  - npm install istanbul -g
   - bower install
+  - npm install coveralls -g
 
 script: npm run-script send-coverage
 
