@@ -43,6 +43,7 @@
 - [ ] Contact Admin form
 - [ ] Email Invite
 - [ ] Social icons to promote Hackathon
+- [ ] Add data viz
 
 ## Ops
 
