@@ -20,11 +20,11 @@
   - [X] Socket.IO
   - [X] Infinite Scroll
   - [ ] Throttling - to only show 100 activies
-  - [ ] Sound Effects/Flash Messages on new activy
+  - [ ] Sound Effects/Flash Messages on new activity
 
 ### Admin Portal (WIP)
-- [ ] Update Title and Logo (and other data/metadata) for organizing hackathon
-- [ ] Open and close Realtime feeds - e.g., twitter and gituh
+- [ ] Update Title and Logo (and other data/metadata - dates, location, etc.) for organizing hackathon
+- [ ] Open and close Realtime feeds - e.g., twitter and github
 - [ ] Update/add repos to watch for
 - [ ] Update/add Twitter accounts to watch for
 
