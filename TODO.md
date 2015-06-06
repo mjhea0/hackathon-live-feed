@@ -7,31 +7,28 @@
 - [X] Github Authentication via Passport
 - [ ] Realtime Feed (commits, pull requests, merges, new repos)
   - [X] Connect with Github API
-  - [ ] Style (color-coded by activity)
-  - [ ] ReactJS Components (optional)
+  - [ ] Style (color-coded by activity - commits, vs pull requests vs merges)
+  - [ ] Remove ReactJS Components
   - [X] Socket.IO (optional)
   - [X] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optional)
-  - [ ] Social icons to promote Hackathon (optional)
 
-### Twitter (guests have access)
+### Twitter
 - [X] Realtime Feed
   - [X] Connect with Twitter API
-  - [ ] ReactJS Components (optional)
+  - [ ] Remove ReactJS Components
   - [X] Socket.IO (optional)
   - [X] Infinite Scroll (optional)
   - [ ] Throttling - to only show 100 activies (optional)
   - [ ] Sound Effects on new activy (optional)
-  - [ ] Social icons to promote Hackathon (optional)
-
 
 ### Admin Portal
 - [ ] Update Title and Logo (and other data/metadata) for organizing hackathon
-- [ ] Open and close Realtime feeds (optional)
-- [ ] Update repos to watch for
-- [ ] Update Twitter accounts to watch for
+- [ ] Open and close Realtime feeds - e.g., twitter and gituh
+- [ ] Update/add repos to watch for
+- [ ] Update/add Twitter accounts to watch for
 
-### Data Visualization (via [NVD3](http://nvd3.org/))
+### Data Visualization (via [NVD3](http://nvd3.org/) or [Angular NVD3](https://github.com/Rossem/RedditStorage))
 - [ ] Number of activies per repo
 - [ ] Number of Tweets
 - [ ] Sumarize hackathon
@@ -41,10 +38,11 @@
 - [ ] Show hackathon details
 - [X] User login
 - [ ] Countdown to hackthon
-- [ ] Create unique URL for an individual hackathon?
-- [ ] Connected users (from Github)
+- [ ] Create unique URL for an individual hackathon
+- [ ] Connected users/accounts (from Github and Twitter)
 - [ ] Contact Admin form
 - [ ] Email Invite (optional)
+- [ ] Social icons to promote Hackathon
 
 ## Ops
 
