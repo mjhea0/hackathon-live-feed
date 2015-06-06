@@ -9,18 +9,18 @@
   - [X] Connect with Github API
   - [ ] Style (color-coded by activity - commits, vs pull requests vs merges)
   - [ ] Remove ReactJS Components
-  - [X] Socket.IO (optional)
-  - [X] Throttling - to only show 100 activies (optional)
-  - [ ] Sound Effects on new activy (optional)
+  - [X] Socket.IO
+  - [X] Throttling - to only show 100 activies
+  - [ ] Sound Effects/Flash Messages on new activy
 
 ### Twitter
 - [X] Realtime Feed
   - [X] Connect with Twitter API
   - [ ] Remove ReactJS Components
-  - [X] Socket.IO (optional)
-  - [X] Infinite Scroll (optional)
-  - [ ] Throttling - to only show 100 activies (optional)
-  - [ ] Sound Effects on new activy (optional)
+  - [X] Socket.IO
+  - [X] Infinite Scroll
+  - [ ] Throttling - to only show 100 activies
+  - [ ] Sound Effects/Flash Messages  on new activy
 
 ### Admin Portal
 - [ ] Update Title and Logo (and other data/metadata) for organizing hackathon
@@ -41,7 +41,7 @@
 - [ ] Create unique URL for an individual hackathon
 - [ ] Connected users/accounts (from Github and Twitter)
 - [ ] Contact Admin form
-- [ ] Email Invite (optional)
+- [ ] Email Invite
 - [ ] Social icons to promote Hackathon
 
 ## Ops
