@@ -50,7 +50,7 @@
 - [X] Add build systems
 - [X] Add bower
 - [X] Add unit and integration tests
-- [X] Add code coverage
+- [ ] Add code coverage/coveralls - broken as of 06/06/2015
 - [X] Add Mongo/Mongoose (or [Monk](https://github.com/Automattic/monk))
 - [X] Finalize CI/CD workflow
 
