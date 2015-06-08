@@ -49,8 +49,7 @@ What should be in the feed?
 - [ ] Show hackathon details
 - [X] User login
 - [ ] Countdown to hackthon
-- [ ] Create unique URL for an individual hackathon
-- [ ] Connected users/accounts (from Github and Twitter)
+- [ ] Show connected users/accounts (from Github and Twitter)
 - [ ] Contact Admin form
 - [ ] Email Invite
 - [ ] Social icons to promote Hackathon
