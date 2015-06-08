@@ -26,6 +26,7 @@
 - [ ] Update Title and Logo (and other data/metadata - dates, location, etc.) for organizing hackathon
 - [ ] Open and close Realtime feeds - e.g., twitter and github
 - [ ] Update/add repos to watch for
+- [ ] Update/add users to watch for
 - [ ] Update/add Twitter accounts to watch for
 
 ### Data Visualization (via [NVD3](http://nvd3.org/) or [Angular NVD3](https://github.com/Rossem/RedditStorage))
@@ -34,7 +35,8 @@
 - [ ] Sumarize hackathon
 - [ ] Etc.
 
-### Splash Page
+### Splash Page (for every user)
+- [ ] Combine Twitter and Github feeds into one - and let users toggle on/off
 - [ ] Show hackathon details
 - [X] User login
 - [ ] Countdown to hackthon
