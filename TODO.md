@@ -11,7 +11,16 @@
   - [ ] Remove ReactJS Components
   - [X] Socket.IO
   - [X] Throttling - to only show 100 activies
-  - [ ] Sound Effects/Flash Messages on new activy
+  - [ ] Sound Effects/Flash Messages on new activity
+  - [ ] Handling REST architecture with Github / rate limiting / cacheing
+
+What should be in the feed?
+
+- Commits: who, message, repo
+- New repo creation
+- When a user joins
+- Pull Requests
+- Group Repo Activity
 
 ### Twitter
 - [X] Realtime Feed
